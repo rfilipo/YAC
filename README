@@ -1,0 +1,89 @@
+YAC
+
+    YAC is a basic CMS Design Pattern with a simple user interface. No
+    need to learn perl to play the YAC but a monk can play so well.
+
+    A CMS needs features , at least, to create, edit and publish content 
+    and to ways to link that content as web address (urls) to navigation 
+    or command menus and links. A good addon is a theme manager. The access 
+    to the CMS and this features need to be defined at Access Control List. 
+    The stronguest feature in the YAC's UI is a simple plugin system integrated 
+    at cpan level.
+
+    The idea, as the first implementation, is design around an extensible and 
+    basic ajax structure implemnted in jquery from Catalyst. 
+    See: Catalyst::View::Component::jQuery.
+
+    As simple as an CMS can be, YAC implements a simple user interface
+    around Catalyst helpers, open hooks and plugins. This open  design 
+    encourage YAC's contributions grow.
+
+    The most important pattern is the open user interface paradigma. The 
+    idea about web interfaces can't neglect Ajax and the HTML 5 protocol.
+
+   Features
+
+    * Media Player
+
+    * Image slide and carroussel
+
+    * Dialogs and some jqueryUI things
+
+    * Access Control List Auth
+
+    * HTML WYSIWYG content editor
+
+    * Acces to Catalyst and Plugins hooks at WYSIWYG content editor level
+
+    * Image, media and file upload at WYSIWYG content editor level
+
+    * Virtual file manager at WYSIWYG content editor level
+
+    * Plugin System, Catalyst compatible
+
+    * Hooks to some Catalyst helpers: create View, create Model, create
+      Control
+
+INSTALLATION
+
+To install this module, run the following commands:
+
+	perl Makefile.PL
+	make
+	make test
+	make install
+
+SUPPORT AND DOCUMENTATION
+
+After installing, you can find documentation for this module with the
+perldoc command.
+
+    perldoc YAC
+
+You can also look for information at:
+
+    RT, CPAN's request tracker
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=YAC
+
+    AnnoCPAN, Annotated CPAN documentation
+        http://annocpan.org/dist/YAC
+
+    CPAN Ratings
+        http://cpanratings.perl.org/d/YAC
+
+    Search CPAN
+        http://search.cpan.org/dist/YAC/
+
+
+LICENSE AND COPYRIGHT
+
+Copyright (C) 2010 Monsenhor
+Ricardo Filipo 
+<ricardo.filipo@mitologica.com.br>
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of either: the GNU General Public License as published
+by the Free Software Foundation; or the Artistic License.
+
+See http://dev.perl.org/licenses/ for more information.
+
