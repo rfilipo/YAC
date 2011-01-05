@@ -29,22 +29,62 @@ It shows the content to user.
 
 The root page (/)
 
+Show a stack defined by this url as argument
+
+sub begin : Private { 
+    my ( $self, $c ) = @_;
+    if ( !$c->request->arguments->[0] ) { 
+        $c->forward('search',['index']);
+        #exit();
+    }
+}
 =cut
 
-sub index :Path :Args(0) {
+
+sub index :Path :Args(1) {
+    my ( $self, $c, $url ) = @_;
+    $c->forward('search',$url);
+}
+
+sub search: Private {
+    my ( $self, $c, $url ) = @_;
+    
+    #print $url;
+    my $result = $c->model('YAC::Stack')->search(
+         {url => {'like' => $url } }
+    );
+    my @rs = $c->model('YAC::Stack')->search(
+         {url => {'like' => $url } }
+    );
+    $c->stash( stacks => \@rs );
+#use Data::Dumper;
+#print "<pre>"; print Dumper(@rs); print "</pre>";
+
+   
+    if ($result->next){ 
+    $c->stash( template => 'html/index.tt' );
+    } else {
+    $c->response->body( '<h1>What? :P  ...</h1><br><a href="/">&lt;-- </a>' );
+    }
+
+}
+
+=head2 index
+
+
+Show a list of all stacks in this system
+
+=cut
+
+
+sub list: Local {
     my ( $self, $c ) = @_;
 
-    # FIXME
-    $c->response->body( "
-        <html><head><title>YAC</title></head>
-        <body style='background: url(\"static/images/yeast.jpg\") #f6edd0 center no-repeat ;'>
-        <h1>
-        YAC (YACCMS (Yet Another Catalyst CMS))
-        </h1>
-        </body>
-        </html> 
-        " );
+    $c->stash(stacks => [$c->model('YAC::Stack')->all]);
+    $c->stash(template => 'src/stacks/list.tt');
 }
+
+
 
 =head2 default
 
@@ -54,8 +94,12 @@ Standard 404 error page
 
 sub default :Path {
     my ( $self, $c ) = @_;
-    $c->response->body( '<h1>What? :P  ...</h1>' );
-    $c->response->status(404);
+    if ( !$c->request->arguments->[0] ) { 
+        $c->forward('search',['index']);
+    } else {
+       $c->response->body( '<h1>What? :P  ...</h1><br><a href="/">&lt;-- </a>' );
+       $c->response->status(404);
+    }
 }
 
 =head2 end
