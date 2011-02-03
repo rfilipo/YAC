@@ -25,6 +25,7 @@ It shows the content to user.
 
 =head1 METHODS
 
+
 =head2 index
 
 The root page (/)
@@ -50,26 +51,33 @@ sub search: Private {
     my ( $self, $c, $url ) = @_;
     
     #print $url;
+    if ($url eq "edit"){$c->response->redirect($c->uri_for("/edit", "index"))}
+    if ($url eq "hack"){$c->response->redirect($c->uri_for("/hack", "index"))}
+
+    # FIXME wy dis?
     my $result = $c->model('YAC::Stack')->search(
          {url => {'like' => $url } }
     );
     my @rs = $c->model('YAC::Stack')->search(
          {url => {'like' => $url } }
     );
-    $c->stash( stacks => \@rs );
+
 #use Data::Dumper;
-#print "<pre>"; print Dumper(@rs); print "</pre>";
+#print Dumper    $result;
+#print Dumper    $rs;
+
+    $c->stash( stacks => \@rs );
 
    
     if ($result->next){ 
     $c->stash( template => 'html/index.tt' );
     } else {
-    $c->response->body( '<h1>What? :P  ...</h1><br><a href="/">&lt;-- </a>' );
+    $c->response->body( '<h1>What? :P  ...</h1>'.$url.'<br><a href="/">&lt;-- </a>' );
     }
 
 }
 
-=head2 index
+=head2 list
 
 
 Show a list of all stacks in this system

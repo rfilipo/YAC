@@ -1,0 +1,18 @@
+[% META title = 'Lista dos Usuarios' -%]
+<div class="ui-widget-title" id='draggable'>
+<span class='btNew' style="float:right; cursor: pointer;" onclick="newStack()')">New</span>YAC Stacks
+</div>
+[% # Display each stack in list row %]
+  <div class='iconlist code'>
+[% FOREACH stack IN stacks -%]
+<div class='draggable'>
+    <li id="[% stack.url %]" class='stack'> [% stack.id %] [% stack.url %]<a target="_blank" href="/[% stack.url %]">  [% stack.titulo %]</a>
+ [% stack.substacks.size +0 -%] substacks
+<div class='btEdit' style="width:16px; height:16px; float:right; cursor: pointer;" onclick="edit('stack', '[% stack.url %]')"></div>
+<div class='btDelete' style="width:16px; height:16px; float:right; cursor: pointer;" onclick="deletar('stack', '[% stack.url %]')"></div>
+</li>
+</div>
+[% END -%]
+  </div>
+</table>
+

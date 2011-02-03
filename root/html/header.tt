@@ -1,4 +1,5 @@
 <!-- YAC HEADER -->
+<link type="text/css" href="/css/default.css" rel="stylesheet" />
 [% VIEW header_view -%]
   [% BLOCK list -%]
      [% FOREACH i IN item -%]

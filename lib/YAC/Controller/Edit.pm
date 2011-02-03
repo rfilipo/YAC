@@ -14,19 +14,91 @@ Catalyst Controller.
 
 =head1 METHODS
 
+
+=head2 auto
+
+Check if there is a user and, if not, forward to login page
+
 =cut
 
+# Note that 'auto' runs after 'begin' but before your actions and that
+# 'auto's "chain" (all from application path to most specific class are run)
+# See the 'Actions' section of 'Catalyst::Manual::Intro' for more info.
+sub auto : Private {
+    my ( $self, $c ) = @_;
+
+    # Allow unauthenticated users to reach the login page.  This
+    # allows unauthenticated users to reach any action in the Login
+    # controller.  To lock it down to a single action, we could use:
+    #   if ($c->action eq $c->controller('Login')->action_for('index'))
+    # to only allow unauthenticated access to the 'index' action we
+    # added above.
+    if ( $c->controller eq $c->controller('Login') ) {
+        return 1;
+    }
+
+    # If a user doesn't exist, force login
+    if ( !$c->user_exists ) {
+
+        # Dump a log message to the development server debug output
+        $c->log->debug('***Root::auto User not found, forwarding to /login');
+
+        # Redirect the user to the login page
+        $c->response->redirect( $c->uri_for('/login') );
+
+      # Return 0 to cancel 'post-auto' processing and prevent use of application
+        return 0;
+    }
+
+    # User found, so return 1 to continue with processing after this 'auto'
+    return 1;
+}
 
 =head2 index 
 
+If the user is loged in procced with editing interface for root url.
+
+Else presents the login page.
+
 =cut
 
-sub index :Path :Args(0) {
-    my ( $self, $c ) = @_;
-
-    $c->response->body('Matched YAC::Controller::Edit in Edit.');
+sub index : Path : Args(1) {
+    my ( $self, $c, $url ) = @_;
+    if   ( $url && $url ne "" ) { $c->forward( 'search', $url ) }
+    else                        { $c->forward( 'search', 'index' ) }
 }
 
+sub search : Private {
+    my ( $self, $c, $url ) = @_;
+
+    #print $url;
+
+    #FIXME wy dis?
+    my $result =
+      $c->model('YAC::Stack')->search( { url => { 'like' => $url } } );
+    my @rs = $c->model('YAC::Stack')->search( { url => { 'like' => $url } } );
+    $c->stash( stacks => \@rs );
+
+    #use Data::Dumper;
+    #print "<pre>"; print Dumper(@rs); print "</pre>";
+
+    if ( $result->next ) {
+        $c->stash( template => 'html/index_edit.tt' );
+    }
+    else {
+        $c->response->body( '<h1>What? :P  ...' 
+              . $url
+              . ' IDK what\'s it, sorry.</h1><br><a href="/">&lt;-- </a>' );
+    }
+
+}
+
+sub editor : Local {
+    my ( $self, $c, $url ) = @_;
+    my @rs = $c->model('YAC::Stack')->search( { url => { 'like' => $url } } );
+    $c->stash( stacks   => \@rs );
+    $c->stash( template => 'html/editor.tt' );
+}
 
 =head2 url_create
     
@@ -34,32 +106,36 @@ sub index :Path :Args(0) {
     
 =cut
 
-sub url_create :Local {
-    # In addition to self & context, get the title, rating, &
-    # author_id args from the URL.  Note that Catalyst automatically
-    # puts extra information after the "/<controller_name>/<action_name/"
-    # into @_.  The args are separated  by the '/' char on the URL.
-    my ($self, $c, $tipo, $titulo, $conteudo, $user_id) = @_;
+sub url_create : Local {
+    my ( $self, $c, $user_id, $conteudo, $url, $titulo, $tipo ) = @_;
+    my $stack = $c->model('YAC::Stack')->create(
+        {
+            tipo    => $tipo,
+            url     => $url,
+            titulo  => $titulo,
+            content => $conteudo,
+        }
+    );
+    $stack->add_to_stack_users( { user_id => $user_id } );
+    $c->stash(
+        stack    => $stack,
+        template => 'html/create_done.tt'
+    );
+}
 
-    # Call create() on the stack model object. Pass the table
-    # columns/field values we want to set as hash values
-    my $stack = $c->model('YAC::Stack')->create({
-            tipo     =>  $tipo                , 
-            titulo   =>  $titulo              , 
-            url   =>  $titulo              , 
-            conteudo =>  $conteudo            , 
-            user_id  =>  $user_id
-    });
+sub url_update : Local {
+    my ( $self, $c ) = @_;
+    my $stackId  = $c->request->params->{stack_id};
+    my $userId   = $c->request->params->{user_id};
+    my $content = $c->request->params->{content};
+    my $title = $c->request->params->{title};
 
-    # Add a record to the join table for this stack, mapping to
-    # appropriate author
-    $stack->add_to_substacks({user_id => $user_id});
-    # Note: Above is a shortcut for this:
-    # $stack->create_related('stack_authors', {author_id => $author_id});
-
-    # Assign the Stack object to the stash for display and set template
-    $c->stash(stack     => $stack,
-              template => 'src/stackscreate_done.tt');
+      #use Data::Dumper;
+      #print Dumper $content;
+      $c->stash(
+        stack    => $content,
+        template => 'html/update_done.tt'
+      );
 }
 
 =head1 AUTHOR

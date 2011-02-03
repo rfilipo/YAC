@@ -1,0 +1,112 @@
+body {
+ background-color: #f9f1ea;
+ background-image: url('/images/bg.png');
+ margin: 0px;
+ font-family: Lucida Grande, Verdana, Sans-serif;
+ font-size: 16px;
+ color: #4F5155;
+}
+
+a {
+ color: #003399;
+ background-color: transparent;
+ font-weight: normal;
+}
+
+h1 {
+ color: #444;
+ background-color: transparent;
+ border-bottom: 1px solid #D0D0D0;
+ font-size: 16px;
+ font-weight: bold;
+ margin: 24px 0 2px 0;
+ padding: 5px 0 6px 0;
+}
+
+p {
+ color: #444;
+ background-color: transparent;
+ font-size: 12px;
+}
+
+#content {
+ background-color: #fff;
+ text-align: justify;
+ /*border: 1px solid #D0D0D0;
+ color: #002166;*/
+ display: block;
+ /* margin: 14px 14px 14px 14px; */
+ /* padding: 12px 12px 12px 12px; */
+}
+
+
+.code {
+ font-family: Monaco, Verdana, Sans-serif;
+ font-size: 12px;
+ background-color: #f9f9f9;
+ border: 1px solid #D0D0D0;
+ color: #002166;
+ display: block;
+ margin: 14px 0 14px 0;
+ padding: 12px 10px 12px 10px;
+}
+.iconlist {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+li.warn {
+background-image: url(/images/tango/warn.png);
+background-repeat: no-repeat;
+background-position: 0 50%;
+padding: 3px 0 3px 20px;
+margin: .4em 0;
+}
+
+li.user {
+background-image: url(/images/tango/user.png);
+background-repeat: no-repeat;
+background-position: 0 50%;
+padding: 3px 0 3px 20px;
+margin: .4em 0;
+}
+li.role {
+background-image: url(/images/tango/role.png);
+background-repeat: no-repeat;
+background-position: 0 50%;
+padding: 3px 0 3px 20px;
+margin: .4em 0;
+}
+li.plugin {
+background-image: url(/images/tango/plugin.png);
+background-repeat: no-repeat;
+background-position: 0 50%;
+padding: 3px 0 3px 20px;
+margin: .4em 0;
+}
+li.stack {
+background-image: url(/images/tango/stack.png);
+background-repeat: no-repeat;
+background-position: 0 50%;
+padding: 3px 0 3px 20px;
+margin: .4em 0;
+}
+.btEdit {
+background-image: url(/images/tango/edit.png);
+background-repeat: no-repeat;
+background-position: 0;
+}
+.btNew {
+background-image: url(/images/tango/new.png);
+background-repeat: no-repeat;
+background-position: 0;
+padding: 0 0 0 20px;
+}
+.btDelete {
+background-image: url(/images/tango/delete.png);
+background-repeat: no-repeat;
+background-position: 0;
+}
+
+

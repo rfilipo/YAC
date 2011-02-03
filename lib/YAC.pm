@@ -27,17 +27,24 @@ use Catalyst qw/
     -Debug
     ConfigLoader
     Static::Simple
+
+    StackTrace
+    Authentication
+    Session
+    Session::Store::FastMmap
+
+    Session::State::Cookie
 /;
 
 extends 'Catalyst';
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 $VERSION = eval $VERSION;
 
 # Configure the application.
@@ -55,10 +62,18 @@ __PACKAGE__->config(
     disable_component_resolution_regex_fallback => 1,
 );
 
+# Configure SimpleDB Authentication
+    __PACKAGE__->config->{'Plugin::Authentication'} = {
+            default => {
+                class           => 'SimpleDB',
+                user_model      => 'YAC::User',
+                password_type   => 'clear',
+            },
+        };
+
+
 # Start the application
 __PACKAGE__->setup();
-
-
 
 =head1 AUTHOR
 
@@ -177,7 +192,10 @@ The menu is same as Play machine plus personal menus and editor menus. The adici
 
 If the user is logged with admin rigths he can access the Admin machine.
 
-Admin machine presents interfaces for edit and administer users, their data and work. Brings CMS's administration tasks like startup and shutdown the server or enable/disable some plugins. 
+Admin machine presents interfaces for edit and administer users, their data and work. 
+Brings CMS's administration tasks like startup and shutdown the server or enable/disable some plugins. 
+
+YAC uses a file to store all users and stacks: the Container. It's a sqlite3 file and can be exchanged, uploaded, downloaded or merged among instances of the YAC at different sites.
 
 The menu is same as Edit machine plus users and admin menus.
 

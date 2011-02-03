@@ -39,7 +39,12 @@ __PACKAGE__->table("user");
   data_type: 'text'
   is_nullable: 1
 
-=head2 login
+=head2 username
+
+  data_type: 'text'
+  is_nullable: 1
+
+=head2 email_address
 
   data_type: 'text'
   is_nullable: 1
@@ -49,7 +54,7 @@ __PACKAGE__->table("user");
   data_type: 'text'
   is_nullable: 1
 
-=head2 role
+=head2 active
 
   data_type: 'integer'
   is_nullable: 1
@@ -63,11 +68,13 @@ __PACKAGE__->add_columns(
   { data_type => "text", is_nullable => 1 },
   "last_name",
   { data_type => "text", is_nullable => 1 },
-  "login",
+  "username",
+  { data_type => "text", is_nullable => 1 },
+  "email_address",
   { data_type => "text", is_nullable => 1 },
   "password",
   { data_type => "text", is_nullable => 1 },
-  "role",
+  "active",
   { data_type => "integer", is_nullable => 1 },
 );
 __PACKAGE__->set_primary_key("id");
@@ -89,9 +96,24 @@ __PACKAGE__->has_many(
   { cascade_copy => 0, cascade_delete => 0 },
 );
 
+=head2 user_roles
 
-# Created by DBIx::Class::Schema::Loader v0.07001 @ 2010-08-24 21:43:29
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:ewd1QUtLWpveDTRx3zkRNA
+Type: has_many
+
+Related object: L<YAC::Schema::Result::UserRole>
+
+=cut
+
+__PACKAGE__->has_many(
+  "user_roles",
+  "YAC::Schema::Result::UserRole",
+  { "foreign.user_id" => "self.id" },
+  { cascade_copy => 0, cascade_delete => 0 },
+);
+
+
+# Created by DBIx::Class::Schema::Loader v0.07001 @ 2011-01-22 20:40:12
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:3Nq4Uit0LSg1koc3Gic0Dg
 
 
 # You can replace this text with custom content, and it will be preserved on regeneration

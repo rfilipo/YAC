@@ -20,7 +20,7 @@
             PRIMARY KEY (id, stack_id)
     );
 
-    -- 'stack_user' tabela relacionamento muitos-muitos entre stacks e users
+    -- 'stack_user' tabela relacionamento muitos-muitos entre stacks e user
     DROP TABLE IF EXISTS stack_user;
     CREATE TABLE stack_user (
             stack_id  INTEGER REFERENCES stack(id) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -30,12 +30,26 @@
     DROP TABLE IF EXISTS user;
     CREATE TABLE user (
             id          INTEGER PRIMARY KEY,
-            first_name  TEXT,
-            last_name   TEXT,
-            login       TEXT,
-            password    TEXT,
-            role        INTEGER
+            first_name      TEXT,
+            last_name       TEXT,
+            username        TEXT,
+            email_address   TEXT,
+            password        TEXT,
+            active          INTEGER
     );
+    DROP TABLE IF EXISTS role;
+    CREATE TABLE role (
+            id   INTEGER PRIMARY KEY,
+            role TEXT
+    );
+    DROP TABLE IF EXISTS user_role;
+    CREATE TABLE user_role (
+            user_id INTEGER REFERENCES user(id) ON DELETE CASCADE ON UPDATE CASCADE,
+            role_id INTEGER REFERENCES role(id) ON DELETE CASCADE ON UPDATE CASCADE,
+            PRIMARY KEY (user_id, role_id)
+    );
+
+
     ---
     --- Dados de exemplo
     ---
@@ -67,12 +81,22 @@
 
 -- Users
 
-    INSERT INTO user VALUES (1, 'Greg', 'Bastien', 'greg@cpan.org', 'novasenha', 1);
-    INSERT INTO user VALUES (2, 'Sara', 'Nasseh', 'sara@pan.org', 'novasenha', 1);
-    INSERT INTO user VALUES (3, 'Christian', 'Degu', 'degu@cpan.org', 'novasenha', 1);
-    INSERT INTO user VALUES (4, 'Richard', 'Stevens', 'stev@cpan.org', 'novasenha', 1);
-    INSERT INTO user VALUES (5, 'Douglas', 'Comer', 'comer@gmail.com', 'novasenha', 2);
-    INSERT INTO user VALUES (9, 'Ricardo', 'Filipo', 'filipo@kobkob.com.br', 'novasenha',3);
+    INSERT INTO user VALUES (1, 'Greg', 'Bastien',     'greg@cpan.org',        'greg@cpan.org',        'novasenha', 1);
+    INSERT INTO user VALUES (2, 'Sara', 'Nasseh',      'sara@pan.org',         'sara@pan.org',         'novasenha', 1);
+    INSERT INTO user VALUES (3, 'Christian', 'Degu',   'degu@cpan.org',        'degu@cpan.org',        'novasenha', 1);
+    INSERT INTO user VALUES (4, 'Richard', 'Stevens',  'stev@cpan.org',        'stev@cpan.org',        'novasenha', 1);
+    INSERT INTO user VALUES (5, 'Douglas', 'Comer',    'comer@gmail.com',      'comer@gmail.com',      'novasenha', 2);
+    INSERT INTO user VALUES (9, 'Ricardo', 'Filipo',   'filipo@kobkob.com.br', 'filipo@kobkob.com.br', 'novasenha',3);
+
+    INSERT INTO role VALUES (1, 'user');
+    INSERT INTO role VALUES (2, 'admin');
+    INSERT INTO user_role VALUES (9, 2);
+    INSERT INTO user_role VALUES (1, 1);
+    INSERT INTO user_role VALUES (2, 1);
+    INSERT INTO user_role VALUES (3, 1);
+    INSERT INTO user_role VALUES (4, 1);
+    INSERT INTO user_role VALUES (5, 1);
+    INSERT INTO user_role VALUES (9, 1);
 
 -- Stack Users
 
