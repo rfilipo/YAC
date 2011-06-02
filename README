@@ -1,19 +1,24 @@
 YAC
 
+This is a software under development. Don't use in a production environment.
+If you are a developer and want to participate, send email to monsenhor@cpan.org
+
+It's for you!
+
    For Bloggers:
-        See the chapter "Blog Roadmap" in documents.
+        See the chapter "Blog Roadmap" in documents.         #TODO
         Just install and edit.
         Use the design you want. 
         The YAC come with some pre-designed templates. 
     For Corporates:
-        See the  chapter "Website Roadmap" in documents.
+        See the  chapter "Website Roadmap" in documents.     #TODO
         Just do the website's design!
         The YAC just works! The website is yours!
     For Designers:
-        See the  chapter "Design Roadmap" in documents.
+        See the  chapter "Design Roadmap" in documents.      #TODO
         Create a new design in YAC is simple as you want.
     For Developers:
-        See the  chapter "YACx Roadmap" in documents.
+        See the  chapter "YACx Roadmap" in documents.        #TODO
         Perl mongers can proud the YAC just hacking new modules.
         See the YAC's blog!
  
@@ -24,22 +29,21 @@ YAC
     ways to link and exchange the content in the web environment.
    
     As simple as an CMS can be, YAC implements a simple user interface
-    around Catalyst helpers, open hooks and plugins. This open  design 
-    encourage YAC's contributions grow.
+    around Catalyst. This open  design encourage YAC's contributions grow.
 
     The most important pattern is the open user interface paradigma. The 
     idea about web interfaces can't neglect Ajax and the HTML 5 protocol.
 
    Features (Core extensions)
 
-    * Dialogs and some jqueryUI things as template widgets     *functional 
+    * Dialogs and jqueryUI things                              *functional 
     * Access Control List Auth                                 *functional
     * HTML WYSIWYG content editor                              *functional
     * Media Player                                             *not implemented
     * Image mosaic, slide and carroussel                       *functional
     * Image insert at WYSIWYG content editor level             *functional
     * Virtual file manager at WYSIWYG content editor level     *not implemented
-    * Extension System, Catalyst compatible, easy instalable   *functional
+    * Extension System, Catalyst compatible, easy instalable   *functional, need howtos
     * Acces to Catalyst at WYSIWYG content editor level        *not implemented
     * Web hooks to some Catalyst helpers: 
             create View,                                       *not implemented
