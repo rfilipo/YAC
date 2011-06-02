@@ -51,7 +51,8 @@ sub index :Path :Args(0) {
         }
 
         # If either of above don't work out, send to the login page
-        $c->stash(template => 'src/auth/login.tt');
+        $c->stash(template => 'admin/auth/login.tt');
+        $c->forward( $c->view('Back') );
 }
 
 

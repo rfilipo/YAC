@@ -1,0 +1,18 @@
+[% # HOME PAGE -%]
+[% META title = 'Lista dos Stacks' -%]
+<h1>YAC Stacks</h1>
+<table>
+<tr><th>id</th><th>pai</th><th>tipo</th><th>url</th><th>titulo</th><th>conteudo</th></tr>
+[% # Display each stack in a table row %]
+[% FOREACH stack IN stacks -%]
+  <tr>
+    <td>[% stack.id %]</td>
+    <td>[% stack.stack_id %]</td>
+    <td>[% stack.tipo %]</td>
+    <td>[% stack.url %]</td>
+    <td>[% stack.titulo %]</td>
+    <td>[% stack.content %]</td>
+    <td></td>
+  </tr>
+[% END -%]
+</table>

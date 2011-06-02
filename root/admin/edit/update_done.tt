@@ -1,0 +1,20 @@
+[% USE Dumper(Indent=1) -%]
+[% META title = 'Stack Updated' %]
+<script type="text/javascript">
+// Editor works inside a iframe. Then YAC is in the parent window
+var YAC = window.parent.YAC;
+YAC.C.Admin.loadList("[% c.uri_for ('/admin','list_content') %]");
+YAC.C.Admin.closeEditor([% stack.id %], 'content');
+</script>
+[% # Output information about the record that was added.  First title.   -%]
+<p>Updated Stack '[% stack.titulo %]'
+with type [% stack.tipo %]
+by '[% stack.stack_users.first.user.last_name %]'
+
+<p>[% action %]</p>
+
+<pre>
+Dump of the 'stack' variable:
+[% Dumper.dump(stack) %]
+</pre>
+

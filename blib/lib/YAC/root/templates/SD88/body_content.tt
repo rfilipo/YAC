@@ -1,0 +1,26 @@
+<center>
+<div id="content" style="z-index:102; width: 48%; text-align: left">
+<!---- YAC BODY ---->
+[% VIEW body_view %]
+<!----STACK_VIEW---->
+  [% BLOCK list %]
+     [% FOREACH i IN item %]
+        [% IF i.tipo == 'html' %]
+<div id="[% i.url  %]" class="stack">
+[% i.content %]
+[% IF i.stacks %]
+  [% tt_stacks = [ ]; tt_stacks.push(stack) FOREACH stack = i.stacks %]
+  [% view.print(tt_stacks.list) %]
+[% END %]
+</div>
+        [% END %]
+     [% END %]
+  [% END %]
+<!----/STACK_VIEW---->
+[% END %]
+
+[% body_view.print(stacks) %]
+</div>
+</center>
+
+

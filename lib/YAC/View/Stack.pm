@@ -5,10 +5,21 @@ use warnings;
 
 use base 'Catalyst::View::TT';
 
+my $template_path = 'root/templates/default/';
+
+use Data::Dumper;
+print Dumper __PACKAGE__->config->{'template_path'};
+
+
 __PACKAGE__->config(
     TEMPLATE_EXTENSION => '.tt',
     render_die => 1,
+    INCLUDE_PATH => [
+          YAC->path_to($template_path),
+        ],
 );
+
+
 
 =head1 NAME
 

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clock</title>
+
+
+</head>
+<body>
+
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<div id="clock">
+ <div class="hour-handle"><span class="handle"></span></div>
+ <div class="minute-handle"><span class="handle"></span></div>
+ <div class="seconds-handle"><span class="handle"></span></div>
+ <img id='pin' src="img/pin.png">
+<style>
+div#clock{
+ width: 175px;
+ height: 80px;
+ margin: 0 auto;
+ position: relative;
+ 
+ background-image: url(img/bgclock.png);
+
+}
+div#clock div.hour-handle, div#clock div.minute-handle, div#clock div.seconds-handle{
+ height: 18px;
+ width: 6px;
+ position: absolute;
+ top: 45px;
+ left: 85px;
+ overflow: hidden;
+ 
+ -moz-transform-origin: 50% 100%;
+ -webkit-transform-origin: 50% 100%;
+ -o-transform-origin: 50% 100%;
+}
+div#clock div.minute-handle{ height: 30px; top: 8px; width: 4px}
+div#clock div.seconds-handle{ height: 30px; top: 8px; left: 87px; width: 1px;}
+div#clock div.hour-handle{ top: 20px; left: 85px;}
+div#clock #pin{ position:absolute; height: 11px; top: 32px; left: 82px; width: 11px; z-index:100}
+
+
+div#clock div.hour-handle .handle, div#clock div.minute-handle .handle, div#clock div.seconds-handle .handle{
+ display: block;
+ background: #333;
+ width: 180%;
+ height: 100%;
+}
+</style>
+<script>
+$(document).ready(function(){
+ function setClock(){
+  var hourHandle = $('div#clock div.hour-handle');
+  var minuteHandle = $('div#clock div.minute-handle');
+  var secondsHandle = $('div#clock div.seconds-handle');
+  var now = new Date();
+
+  var hourDeg = 'rotate(' + ((now.getHours() * 30) + Math.floor(now.getMinutes() / 2)) + 'deg)';
+  var minDeg = 'rotate(' + (now.getMinutes() * 6) + 'deg)';
+  var secDeg = 'rotate(' + (now.getSeconds() * 6) + 'deg)';
+
+  hourHandle.css({
+   '-moz-transform': hourDeg,
+   '-webkit-transform': hourDeg,
+   '-o-transform': hourDeg
+   });
+  minuteHandle.css({
+   '-moz-transform': minDeg,
+   '-webkit-transform': minDeg,
+   '-o-transform': minDeg
+   });
+  secondsHandle.css({
+   '-moz-transform': secDeg,
+   '-webkit-transform': secDeg,
+   '-o-transform': secDeg
+   });
+ }
+
+ setClock();
+ setInterval( setClock, 1000);
+});
+</script>
+</div>
+
+	
+</body>
+</html>
+

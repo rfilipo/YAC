@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 use base 'Catalyst::View::TT';
+use YAC::Stack;
 
 __PACKAGE__->config(
     TEMPLATE_EXTENSION => '.tt',

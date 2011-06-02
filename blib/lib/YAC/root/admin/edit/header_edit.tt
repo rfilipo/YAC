@@ -1,0 +1,67 @@
+<!-- YAC HEADER -->
+<link type="text/css" href="/css/default.css" rel="stylesheet" />
+<link type="text/css" href="/css/custom-theme/jquery-ui-1.8.9.custom.css" rel="stylesheet" />
+<script type="text/javascript" src="/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.9.custom.min.js"></script>
+<script type="text/javascript" src="/js/jquery.editinplace.js"></script>
+<style>
+.edit_button{
+    cursor: pointer;
+    background-image: url(/images/tango/edit.png);
+    background-repeat: no-repeat;
+}
+.delete_button{
+    cursor: pointer;
+    background-image: url(/images/tango/delete.png);
+    background-repeat: no-repeat;
+}
+.up_button{
+    cursor: pointer;
+    background-image: url(/images/tango/up.png);
+    background-repeat: no-repeat;
+}
+.down_button{
+    cursor: pointer;
+    background-image: url(/images/tango/down.png);
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+</style>
+[% VIEW header_view -%]
+  [% BLOCK list -%]
+     [% FOREACH i IN item -%]
+        [% IF i.tipo == 'css' -%]
+
+<!-- estilos -->
+<style>
+[% i.content %]
+
+</style>
+
+        [% END -%]
+
+<!-- includes -->
+<script src="[% i.content %]">
+</script>
+        [% END -%]
+        [% IF i.tipo == 'js' -%]
+
+<!-- javascript -->
+<script>
+[% i.content %]
+</script>
+        [% END -%]
+
+[% IF i.stacks -%]
+  [% tt_stacks = [ ]; tt_stacks.push(stack) FOREACH stack = i.stacks -%]
+  [% view.print(tt_stacks.list) -%]
+[% END -%]
+     [% END -%]
+  [% END -%]
+
+[% header_view.print(stacks) %]
+

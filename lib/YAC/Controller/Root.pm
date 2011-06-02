@@ -44,17 +44,48 @@ sub begin : Private {
 
 sub index :Path :Args(1) {
     my ( $self, $c, $url ) = @_;
+    
+    if ($c->config->{'template_path'}) {
+        $c->stash->{additional_template_paths} =
+            [$c->config->{'template_path'}];
+
+        $c->session->{template} = $c->config->{'template_path'};
+    }
     $c->forward('search',$url);
 }
 
+=head2 template_path
+
+Change the template_path configuration. 
+
+After this command is done all pages served will use the new template until it changes again. It can be a must in ajax aplications.
+
+The site can use template_path configuration from web requests or from file yac.conf.
+
+If you want to use configuration from web request coment the configuration diretive template_path in yac.conf. The web command only works if the template_path diretive isn't in the yac.conf. 
+
+Enjoy!
+
+=cut
+
+
+sub template_path :Local :Args(1) {
+    my ( $self, $c, $path ) = @_;
+    $path =~ s/_/\//g;
+    $c->stash->{additional_template_paths} =
+        [$c->config->{'template_path'}];
+    $c->session->{template} = $path;
+    $c->response->body("new_path $path");
+}
+
+
 sub search: Private {
     my ( $self, $c, $url ) = @_;
-    
-    #print $url;
+
     if ($url eq "edit"){$c->response->redirect($c->uri_for("/edit", "index"))}
     if ($url eq "hack"){$c->response->redirect($c->uri_for("/hack", "index"))}
 
-    # FIXME wy dis?
+    # FIXME wy dis? :P dumb!
     my $result = $c->model('YAC::Stack')->search(
          {url => {'like' => $url } }
     );
@@ -64,15 +95,19 @@ sub search: Private {
 
 #use Data::Dumper;
 #print Dumper    $result;
-#print Dumper    $rs;
+#print Dumper    @rs;
 
     $c->stash( stacks => \@rs );
 
    
-    if ($result->next){ 
-    $c->stash( template => 'html/index.tt' );
+    if ($result->next){
+        my $template_path = 'root/templates/default';
+        $template_path=$c->session->{template} unless ! $c->session->{template}; 
+        @{ $c->view('Stack')->include_path } = $template_path;
+        $c->stash( template => 'index.tt' );
+        $c->forward( $c->view('Stack') );
     } else {
-    $c->response->body( '<h1>What? :P  ...</h1>'.$url.'<br><a href="/">&lt;-- </a>' );
+        $c->response->body( '<h1>What? :P  ...</h1>'.$url.'<br><a href="/">&lt;-- </a>' );
     }
 
 }
@@ -89,7 +124,8 @@ sub list: Local {
     my ( $self, $c ) = @_;
 
     $c->stash(stacks => [$c->model('YAC::Stack')->all]);
-    $c->stash(template => 'src/stacks/list.tt');
+    $c->stash(template => 'list.tt');
+    #$c->forward( $c->view('Stack') );
 }
 
 
@@ -102,8 +138,17 @@ Standard 404 error page
 
 sub default :Path {
     my ( $self, $c ) = @_;
+
+    if ($c->config->{'template_path'}) {
+        $c->stash->{additional_template_paths} =
+            [$c->config->{'template_path'}];
+
+        $c->session->{template} = $c->config->{'template_path'};
+    }
+ 
+
     if ( !$c->request->arguments->[0] ) { 
-        $c->forward('search',['index']);
+        $c->forward('search',[$c->config->{'homepage'}]);
     } else {
        $c->response->body( '<h1>What? :P  ...</h1><br><a href="/">&lt;-- </a>' );
        $c->response->status(404);

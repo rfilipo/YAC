@@ -1,0 +1,148 @@
+<div id="header" style=
+"z-index:100;text-align: center"><a href=
+"/"><img id="logo"
+       alt="Studio Design 88" 
+       src="/templates/SD88/images/logo.png" 
+       height="100" 
+       width="151" 
+       style=
+"height: 100px; width: 151px border-width: 0px; margin-top:1%"></a>
+<br><img id="logo_line" alt="_________________" src=
+"/templates/SD88/images/logo_line.png" style=
+"width: 640px;  height: 3px; border-width: 0px; z-index:101">
+<script>
+// adapt header to window width
+$('#header').width($(document).width());
+$('#header').height($(document).height() * 0.185);
+var logoRel = $('#logo').width()/$('#logo').height();
+$('#logo').height($(document).height() * 0.14);  
+$('#logo').width($('#logo').height() * logoRel);
+$('#logo').css('width', $('#logo').width()+'px');
+$('#logo').css('height', $('#logo').height()+'px');
+$('#logo_line').width($(document).width() * 0.48);
+//$('#logo_line').height($(document).height() * 0.14);
+</script>
+</div>
+
+
+<!----SUBMENUS In Top sides---->
+<div id="menu_top" style="display:none;width:100%;position:absolute; top:16%">
+<center>
+&nbsp;<br>
+<table width="90%" cellpadding="0" border="0" cellspacing="0">
+  <tr>
+    <td valign="top" style="text-align:left">
+    <!----TOP LEFT---->
+    <div id="menu_top_left" style="color:black;text-align:left">
+            <li><a href="design88" class="menutop">software design</a></li>
+            <li><a href="design88" class="menutop">web design</a></li>
+            <li><a href="design88" class="menutop">graphic design</a></li>
+            <li><a href="design88" class="menutop">marketing</a></li>
+            <li><a href="design88" class="menutop">advertising</a></li>
+            <li><a href="design88" class="menutop">startup combo</a></li>
+    </div>
+    </td>
+    <td style="width:50%">
+    </td>
+    <td valign="top" style="text-align:right">
+    <!----TOP RIGHT---->
+    <div id="menu_top_right" style="text-align:right">
+            <li><a href="design88" class="menutop">consulting</a></li>
+            <li><a href="design88" class="menutop">branding</a></li>
+            <li><a href="design88" class="menutop">packaging</a></li>
+            <li><a href="design88" class="menutop">art design</a></li>
+            <li><a href="design88" class="menutop">interior design</a></li>
+            <li><a href="design88" class="menutop">exihibition design</a></li>
+    </div>
+    </td>
+  </tr>
+</table>
+</center>
+</div>
+
+
+
+
+<!----SUBMENUS In FOOTER---->
+<div style="z-index:8000;width:100%;position:absolute; bottom:30px; text-align:center; background-color:transparent">
+<table width="100%" cellpadding="0" border="0" cellspacing="0">
+  <tr>
+    <td align="center" valign="bottom" style="width:31%">
+    <!----SUBMENU 1---->
+    <div id="submenu_1" style="width:9em; text-align:left">
+            <li><a href="/design88.html" class="submenu">services</a></li>
+            <li><a href="whoiswho" class="submenu">Who is who</a></li>
+            <li><a href="contact" class="submenu">Contact</a>
+    </div>
+    </td>
+    <td align="center" valign="bottom" style="width:29%">
+    <!----SUBMENU 2---->
+    <div id="submenu_2" style="width:9em; text-align:left">
+            <li><a href="contact" class="submenu">web design</a></li>
+            <li><a href="contact" class="submenu">graphic design</a></li>
+            <li><a href="contact" class="submenu">exhibition design</a></li>
+            <li><a href="contact" class="submenu">logo design</a></li>
+            <li><a href="contact" class="submenu">advertising</a></li>
+            <li><a href="contact" class="submenu">interior design</a></li>
+    </div>
+
+    <td align="center" valign="bottom" style="width:25%">
+    <!----SUBMENU 3---->
+    <div id="submenu_3" style="width:8em; text-align:left">
+            <li><a href="contact" class="submenu">gicl&eacute;e</a></li>
+            <li><a href="contact" class="submenu">print</a></li>
+    </div>
+    </td>
+    <td align="center" valign="bottom" style="width:14%">
+    <!----SUBMENU 4---->
+    <div id="submenu_4" style="width:4em; text-align:left">
+            <li><a href="http://atelier.kobkob.com.br/" class="submenu">fine art</a></li>
+            <li><a href="http://services.kobkob.com.br/" class="submenu">services</a></li>
+            <li><a href="http://ad.kobkob.com.br/" class="submenu">advertising</a></li>
+            <li><a href="http://yac.kobkob.com.br/" class="submenu">yac</a></li>
+    </div>
+    </td>
+
+  </tr>
+</table>
+</div>
+
+
+
+
+
+
+<!----MENU---->
+<div id="menu" style="width:100%;position:absolute; bottom:2px; text-align:center; background-color:#dd261e">
+<table bgcolor="#dd261e"width="100%" cellpadding="0" border="0" cellspacing="0.0">
+  <tr>
+    <td style="width:31%"><a href="#"><img id='menu_1' alt="" src="/templates/SD88/images/menu_0_1.png" style="width: 100px; height: 26px; border-width: 0px" 
+name="0_1" 
+      onmouseout="exchange(this, 'images_menu', 0);"
+      onmouseover="exchange(this, 'images_menu', 1);"
+/></a>
+</td>
+
+    <td style="width:29%"><a href="#"><img id='menu_2' alt="" src="/templates/SD88/images/menu_0_3.png" style="width: 94px; height: 26px; border-width: 0px" 
+name="0_3" 
+      onmouseout="exchange(this, 'images_menu', 0);"
+      onmouseover="exchange(this, 'images_menu', 1);"
+/></a></td>
+
+    <td style="width:25%"><a href="#"><img id='menu_3' alt="" src="/templates/SD88/images/menu_0_5.png" style="width: 82px; height: 26px; border-width: 0px" 
+name="0_5" 
+      onmouseout="exchange(this, 'images_menu', 0);"
+      onmouseover="exchange(this, 'images_menu', 1);"
+/></a></td>
+
+    <td style="width:14%"><a href="#"><img id='menu_4' alt="" src="/templates/SD88/images/menu_0_7.png" style="width: 44px; height: 26px; border-width: 0px" 
+name="0_7" 
+      onmouseout="exchange(this, 'images_menu', 0);"
+      onmouseover="exchange(this, 'images_menu', 1);"
+/></a></td>
+</tr>
+</table>
+</div>
+
+
+

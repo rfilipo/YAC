@@ -1,0 +1,35 @@
+<!-- YAC HEADER -->
+<link type="text/css" href="/css/default.css" rel="stylesheet" />
+[% VIEW header_view -%]
+  [% BLOCK list -%]
+     [% FOREACH i IN item -%]
+        [% IF i.tipo == 'css' -%]
+
+<!-- estilos -->
+<style>
+[% i.content %]
+</style>
+
+        [% END -%]
+        [% IF i.tipo == 'js_include' -%]
+<!-- includes -->
+<script src="[% i.content %]">
+</script>
+        [% END -%]
+        [% IF i.tipo == 'js' -%]
+
+<!-- javascript -->
+<script>
+[% i.content %]
+</script>
+        [% END -%]
+
+[% IF i.stacks -%]
+  [% tt_stacks = [ ]; tt_stacks.push(stack) FOREACH stack = i.stacks -%]
+  [% view.print(tt_stacks.list) -%]
+[% END -%]
+     [% END -%]
+  [% END -%]
+[% END -%]
+
+[% header_view.print(stacks) %]

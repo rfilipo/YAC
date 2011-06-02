@@ -1,19 +1,28 @@
 YAC
 
+   For Bloggers:
+        See the chapter "Blog Roadmap" in documents.
+        Just install and edit.
+        Use the design you want. 
+        The YAC come with some pre-designed templates. 
+    For Corporates:
+        See the  chapter "Website Roadmap" in documents.
+        Just do the website's design!
+        The YAC just works! The website is yours!
+    For Designers:
+        See the  chapter "Design Roadmap" in documents.
+        Create a new design in YAC is simple as you want.
+    For Developers:
+        See the  chapter "YACx Roadmap" in documents.
+        Perl mongers can proud the YAC just hacking new modules.
+        See the YAC's blog!
+ 
     YAC is a basic CMS Design Pattern with a simple user interface. No
     need to learn perl to play the YAC but a monk can play so well.
 
-    A CMS needs features , at least, to create, edit and publish content 
-    and to ways to link that content as web address (urls) to navigation 
-    or command menus and links. A good addon is a theme manager. The access 
-    to the CMS and this features need to be defined at Access Control List. 
-    The stronguest feature in the YAC's UI is a simple plugin system integrated 
-    at cpan level.
-
-    The idea, as the first implementation, is design around an extensible and 
-    basic ajax structure implemnted in jquery from Catalyst. 
-    See: Catalyst::View::Component::jQuery.
-
+    A CMS needs features to create, edit, organize and publish content,
+    ways to link and exchange the content in the web environment.
+   
     As simple as an CMS can be, YAC implements a simple user interface
     around Catalyst helpers, open hooks and plugins. This open  design 
     encourage YAC's contributions grow.
@@ -21,27 +30,18 @@ YAC
     The most important pattern is the open user interface paradigma. The 
     idea about web interfaces can't neglect Ajax and the HTML 5 protocol.
 
-   Features
+   Features (Core extensions)
 
-    * Media Player
-
-    * Image slide and carroussel
-
-    * Dialogs and some jqueryUI things
-
+    * Dialogs and some jqueryUI things as template widgets
     * Access Control List Auth
-
     * HTML WYSIWYG content editor
-
-    * Acces to Catalyst and Plugins hooks at WYSIWYG content editor level
-
+    * Media Player
+    * Image mosaic, slide and carroussel
     * Image, media and file upload at WYSIWYG content editor level
-
     * Virtual file manager at WYSIWYG content editor level
-
-    * Plugin System, Catalyst compatible
-
-    * Hooks to some Catalyst helpers: create View, create Model, create
+    * Extension System, Catalyst compatible, easy instalable
+    * Acces to Catalyst at WYSIWYG content editor level
+    * Web hooks to some Catalyst helpers: create View, create Model, create
       Control
 
 INSTALLATION

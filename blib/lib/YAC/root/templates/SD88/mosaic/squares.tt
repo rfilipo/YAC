@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head profile='http://kobkob.org/xmdp/squares.html'>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta name="author" lang="en" content="monsenhor" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+<title>mosaic iframe</title>
+<script type="text/javascript" src="/js/jquery-1.4.4.min.js"></script>
+<link type="text/css" href="/templates/SD88/mosaic/main.css" rel="stylesheet"/>
+<script type="text/javascript" src="/templates/SD88/mosaic/mosaic.js"></script>
+<script language="javascript" type="text/javascript">
+/* Made with YACx-Mosaic 0.01 for use in studiodesign88.com */
+    images_mosaic = new Array();
+</script>
+</head>
+<body>
+<div style="position:absolute;top:0px;left:0px">
+<center>
+<table cellpadding="0" border="0" cellspacing="0.0">
+[% i = 0; rows = 0; cols = 0 -%]
+[% WHILE rows < 5 %]
+<tr>
+  [% WHILE cols < 8 %]
+  [% filename = images.$rows.$cols.file %]
+<td><a href="/mosaic/show/[% serie %]/[% images.$rows.$cols.file %]"><img 
+        onclick="mosaicAction(this);" 
+        onmouseout="exchange(this, 'images_mosaic', 0);" 
+        onmouseover="exchange(this, 'images_mosaic', 1);" 
+        class='m_0' 
+        style='width:[% width %]; height:[% width %]; border-width:0px' 
+        alt="[% filename %]" 
+        src='/mosaic/show/[% serie %]/[% images.$rows.$cols.mos %]' 
+        name='[% rows %]_[% cols %]' 
+        id='[% i %]' border='0' refx= '[% images.$rows.$cols.x %]' refy='[% images.$rows.$cols.y %]' /></a></td>
+<script language="javascript" type="text/javascript">
+    // Preload images: 
+    images_mosaic["[% rows %]_[% cols %]_plain"] = new  Image();
+    images_mosaic["[% rows %]_[% cols %]_plain"].src = "/mosaic/show/[% serie %]/[% images.$rows.$cols.mos %]";
+    images_mosaic["[% rows %]_[% cols %]_hover"] = new  Image();
+    images_mosaic["[% rows %]_[% cols %]_hover"].src = "/mosaic/show/[% serie %]/hover_[% images.$rows.$cols.mos %]";
+</script>
+    [% cols = cols + 1 -%]
+    [% i = i + 1 -%]
+  [% END -%]
+  [% cols = 0 -%]
+</tr>
+  [% rows = rows + 1 -%]
+[% END -%]
+</table>
+</center>
+</div>
+
+<script language="javascript" type="text/javascript">
+function exchange (image, images_array_name, event)
+  {
+    name = image.name;
+    images = eval (images_array_name);
+
+    switch (event)
+      {
+        case 0:
+          image.src = images[name + "_plain"].src;
+          break;
+        case 1:
+          image.src = images[name + "_hover"].src;
+          break;
+/*        case 2:
+          image.src = images[name + "_clicked"].src;
+          break;
+        case 3:
+          image.src = images[name + "_visited"].src;
+          break;
+*/
+      }
+  }
+</script>
+</body>
+</html>

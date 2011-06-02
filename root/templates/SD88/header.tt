@@ -1,0 +1,45 @@
+<!-- SD88 template header fo YAC 0.2 -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta name="author" lang="en" content="Monsenhor" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+
+<meta name="keywords" content="design, brand, website, webdesign, exihibition, arts, perl, giclee, fine-arts, crm, development, yac, cms">
+<link rel="shortcut icon" href="templates/SD88/favicon.ico" />
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/YAC.js"></script>
+<link type="text/css" href="templates/SD88/css/main.css" rel="stylesheet" />    
+<script type="text/javascript" src="templates/SD88/js/sd88.js"></script>
+<!-- stacks things -->
+[% VIEW header_view -%]
+  [% BLOCK list -%]
+     [% FOREACH i IN item -%]
+        [% IF i.tipo == 'css' -%]
+
+<!-- estilos -->
+<style>
+[% i.content %]
+</style>
+
+        [% END -%]
+        [% IF i.tipo == 'js_include' -%]
+<!-- includes -->
+<script src="[% i.content %]">
+</script>
+        [% END -%]
+        [% IF i.tipo == 'js' -%]
+
+<!-- javascript -->
+<script>
+[% i.content %]
+</script>
+        [% END -%]
+
+[% IF i.stacks -%]
+  [% tt_stacks = [ ]; tt_stacks.push(stack) FOREACH stack = i.stacks -%]
+  [% view.print(tt_stacks.list) -%]
+[% END -%]
+     [% END -%]
+  [% END -%]
+[% END -%]
+
+[% header_view.print(stacks) %]

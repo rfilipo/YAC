@@ -1,0 +1,10 @@
+[% META title = 'Lista dos Usuarios' -%]
+<h1>YAC Plugins</h1>
+[% # Display each plugin in list row %]
+  <div class='iconlist code'>
+[% FOREACH plugin IN plugins -%]
+    <li class='plugin'>[% plugin.name %], [% plugin.first_name %] <a href='mailto:[% plugin.email_address %]'>[% plugin.email_address %]</a> 
+<span class='btEdit' style="float:right; cursor: pointer;" onclick="edit('plugin', [% plugin.id %])">Edit</span></li>
+[% END -%]
+  </div>
+</table>

@@ -1,0 +1,29 @@
+[% # Use the TT Dumper plugin to Data::Dumper variables to the browser   -%]
+[% # Not a good idea for production use, though. :-)  'Indent=1' is      -%]
+[% # optional, but prevents "massive indenting" of deeply nested objects -%]
+[% USE Dumper(Indent=1) -%]
+
+[% # Set the page title.  META can 'go back' and set values in templates -%]
+[% # that have been processed 'before' this template (here it's for      -%]
+[% # root/lib/site/html and root/lib/site/header).  Note that META only  -%]
+[% # works on simple/static strings (i.e. there is no variable           -%]
+[% # interpolation).                                                     -%]
+[% META title = 'Book Created' %]
+
+[% # Output information about the record that was added.  First title.   -%]
+<p>Added stack '[% stack.titulo %]'
+
+[% # Output the last name of the first user.                           -%]
+by '[% stack.stack_users.first.user.last_name %]'
+
+[% # Output the type for the stack that was added -%]
+with type [% stack.tipo %].</p>
+
+[% # Provide a link back to the list page                                    -%]
+<p><a href="[% c.uri_for('/list') %]">Return to list</a></p>
+
+[% # Try out the TT Dumper (for development only!) -%]
+<pre>
+Dump of the 'stack' variable:
+[% Dumper.dump(stack) %]
+</pre>

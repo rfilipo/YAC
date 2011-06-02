@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+            "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head profile='http://kobkob.org/xmdp/yac.html'>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta name="author" lang="en" content="monsenhor" />
+<meta name="keywords" content="design, brand, website, webdesign, exihibition, arts, perl, giclee, fine-arts, crm, development, yac, cms">
+<style type="text/css"> 
+/*<![CDATA[*/
+body {
+ background-color: #fff;
+ background-image: url('<?php echo $backgroundImage; ?>');
+ margin: 0px;
+ font-family: Lucida Grande, Verdana, Sans-serif;
+ font-size: 14px;
+ color: #4F5155;
+}
+
+a {
+ color: #003399;
+ background-color: transparent;
+ font-weight: normal;
+}
+
+h1 {
+ color: #444;
+ background-color: transparent;
+ border-bottom: 1px solid #D0D0D0;
+ font-size: 16px;
+ font-weight: bold;
+ margin: 24px 0 2px 0;
+ padding: 5px 0 6px 0;
+}
+
+code {
+ font-family: Monaco, Verdana, Sans-serif;
+ font-size: 12px;
+ background-color: #f9f9f9;
+ border: 1px solid #D0D0D0;
+ color: #002166;
+ display: block;
+ margin: 14px 0 14px 0;
+ padding: 12px 10px 12px 10px;
+}
+/*]]>*/
+</style> 
+
+<title>www.studiodesign88.com</title>
+
+<link rel="shortcut icon" href="favicon.ico" />
+<link type="text/css" href="css/custom-theme/jquery-ui-1.8.4.custom.css" rel="stylesheet" />    
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>
+
+<link type="text/css" href="css/main.css" rel="stylesheet" />    
+<script type="text/javascript" src="js/yac_base_0.1.js"></script>
+<script type="text/javascript" src="js/sd88.js"></script>
+
+<script language="javascript" type="text/javascript">
+/* Made with GIMP */
+
+/* Preload images: */
+    images_menu = new Array();
+    images_menu["0_1_plain"] = new  Image();
+    images_menu["0_1_plain"].src = "images/menu_0_1.png";
+    images_menu["0_1_hover"] = new  Image();
+    images_menu["0_1_hover"].src = "images/menu_0_1_hover.png";
+    images_menu["0_3_plain"] = new  Image();
+    images_menu["0_3_plain"].src = "images/menu_0_3.png";
+    images_menu["0_3_hover"] = new  Image();
+    images_menu["0_3_hover"].src = "images/menu_0_3_hover.png";
+    images_menu["0_5_plain"] = new  Image();
+    images_menu["0_5_plain"].src = "images/menu_0_5.png";
+    images_menu["0_5_hover"] = new  Image();
+    images_menu["0_5_hover"].src = "images/menu_0_5_hover.png";
+    images_menu["0_7_plain"] = new  Image();
+    images_menu["0_7_plain"].src = "images/menu_0_7.png";
+    images_menu["0_7_hover"] = new  Image();
+    images_menu["0_7_hover"].src = "images/menu_0_7_hover.png";
+
+function exchange (image, images_array_name, event)
+  {
+    name = image.name;
+    images = eval (images_array_name);
+
+    switch (event)
+      {
+        case 0:
+          image.src = images[name + "_plain"].src;
+          break;
+        case 1:
+          image.src = images[name + "_hover"].src;
+          break;
+        case 2:
+          image.src = images[name + "_clicked"].src;
+          break;
+        case 3:
+          image.src = images[name + "_hover"].src;
+          break;
+      }
+
+  }
+</script>
+</head>
+<body>
+
+<div id="header" style="text-align: center">
+   <a href="/"><img alt="Studio Design 88" src="images/logo.png"  
+        style="height: 14%; border-width: 0px; margin-top:1%"><br>
+<img alt="_________________" src="images/logo_line.png" style="width: 48%;  height: 3px; border-width: 0px;"></a>
+</div>
+<div id="content" style="text-align:center">
+<p>sou o conteudo ... :D
+<!--><img alt=" " src="images/index_1_0.png"  style="width: 1024px; height: 572px; border-width: 0px;"></!-->
+</div>
+<div id="menu" style="width:99%;position:absolute; bottom:1%; text-align:center; background-color:#dd261e">
+<table width="100%" cellpadding="0" border="0" cellspacing="0.0">
+  <tr>
+    <td><a href="#"><img alt="" src="images/menu_0_1.png" style="width: 100px; height: 26px; border-width: 0px" 
+name="0_1" 
+      onmouseout="exchange(this, 'images_menu', 0);"
+      onmouseover="exchange(this, 'images_menu', 1);"
+/></a></td>
+
+    <td><a href="#"><img alt="" src="images/menu_0_3.png" style="width: 94px; height: 26px; border-width: 0px" 
+name="0_3" 
+      onmouseout="exchange(this, 'images_menu', 0);"
+      onmouseover="exchange(this, 'images_menu', 1);"
+/></a></td>
+
+    <td><a href="#"><img alt="" src="images/menu_0_5.png" style="width: 82px; height: 26px; border-width: 0px" 
+name="0_5" 
+      onmouseout="exchange(this, 'images_menu', 0);"
+      onmouseover="exchange(this, 'images_menu', 1);"
+/></a></td>
+
+    <td><a href="#"><img alt="" src="images/menu_0_7.png" style="width: 44px; height: 26px; border-width: 0px" 
+name="0_7" 
+      onmouseout="exchange(this, 'images_menu', 0);"
+      onmouseover="exchange(this, 'images_menu', 1);"
+/></a></td>
+
+</tr>
+
+</table>
+
+</div>
+<div id="footer">
+<!-- no footer here   -->
+</div>
+</body>
+</html> 
+<!-- powered by YAC for SD88 all rights left from monsenhor -->

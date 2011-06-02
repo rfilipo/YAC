@@ -1,0 +1,374 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>NOME</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body style="background-color: white">
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#nome">NOME</a></li>
+	<li><a href="#verso">VERS&Atilde;O</a></li>
+	<li><a href="#autor">AUTOR</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<ul>
+
+		<li><a href="#design_pattern">Design Pattern</a></li>
+		<li><a href="#stack">Stack</a></li>
+	</ul>
+
+	<li><a href="#m__todos">MÉTODOS</a></li>
+	<ul>
+
+		<li><a href="#new">new</a></li>
+		<li><a href="#run">run</a></li>
+		<li><a href="#stop">stop</a></li>
+	</ul>
+
+	<li><a href="#yac">YAC</a></li>
+	<ul>
+
+		<li><a href="#imnplementa____o_em_catalyst">Imnplementação em Catalyst</a></li>
+	</ul>
+
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#descri____o">DESCRIÇÃO</a></li>
+	<ul>
+
+		<li><a href="#estrutura_de_controle">Estrutura de Controle</a></li>
+		<li><a href="#model_structure">Model Structure</a></li>
+		<li><a href="#core_plugins">Core Plugins</a></li>
+	</ul>
+
+	<li><a href="#see_also">SEE ALSO</a></li>
+	<li><a href="#acknowledgements">ACKNOWLEDGEMENTS</a></li>
+	<ul>
+
+		<li><a href="#benefits_to_the_perl_community">Benefits to the Perl Community</a></li>
+		<ul>
+
+			<li><a href="#biblio">Biblio</a></li>
+		</ul>
+
+		<li><a href="#deliverables">Deliverables</a></li>
+		<li><a href="#project_details">Project Details</a></li>
+		<ul>
+
+			<li><a href="#features">Features</a></li>
+		</ul>
+
+	</ul>
+
+	<li><a href="#license_and_copyright">LICENSE AND COPYRIGHT</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<h1><a name="nome">NOME</a></h1>
+<p>YAC (YACCMS (Yet Another Catalyst CMS))</p>
+<p><strong>Colofon:</strong></p>
+<p>YAC lembra &quot;Yeast Artificial Chromosome. Yeah!
+A levedura é o nosso mascote.
+See <a href="http://en.wikipedia.org/wiki/Yeast">http://en.wikipedia.org/wiki/Yeast</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="verso">VERS&Atilde;O</a></h1>
+<p>Vers&atilde;o 0.01</p>
+<p>
+</p>
+<hr />
+<h1><a name="autor">AUTOR</a></h1>
+<p>Monsenhor, <code>&lt;ricardo.filipo at gmail.com&gt;</code></p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p>Um CMS matador. Tão simples! Tão útil!</p>
+<pre>
+    use YACCMS;</pre>
+<pre>
+    my $web = new YACCMS;
+    $web-&gt;run();
+    # go to web!</pre>
+<p>
+</p>
+<h2><a name="design_pattern">Design Pattern</a></h2>
+<p>O ponto de vista do usuário leigo é o foco do YAC. Eu não tenho dúvida que seria muito mais fácil para o nosso pequeno YAC se não tivesse que lidar com usuários. Especialmente os que são leigos nas aventuras da TI. Mas nada disto teria sentido se o YAC não fosse pensado para ser usado por alguém.</p>
+<p>Na verdade se houver alguma complexidade no YAC estará relacionada com o desenvolvimento de interfaces e agentes voltados à facilidade do usuário. O nosso objetivo é permitir que o usuário pense e trabalhe em seus assuntos, sem ter que se preocupar com detalhes de como isto se realiza. Infelizmente o YAC ainda não pode entender o usuário por telepatia, sim, seria certamente a melhor abordagem caso já existisse a tecnologia, então nos contentaremos com as interfaces em uso, como Html e Ajax.</p>
+<p>Produtos como Drupal, líder do mercado, apresentam, apesar de sua grande maleabilidade e integrabilidade com outros sistemas, uma interface engessada e ainda complexa para um usuário médio. A proposta do YAC é ser o mais simples possível, o mais básico possível. O objetivo do YAC é administrar apenas cada elemento unitário de cada vez. A unidade é o Stack.</p>
+<p>Em nossa opinião o melhor desenho para um CMS deve ser a Pilha. Mas pensamos a pilha como uma colagem, os objetos não precisam ser todos da mesma forma material ou tamanho. A estrutura de camadas do <strong>css</strong> ou folhas de estilo funciona assim. Cada objeto depositado na pilha (a tela do site) é um url definido como um elemento do YAC, uma pilha de pilhas.</p>
+<p>O nosso mascote, o fungo, apresenta uma estrutura muito parecida. Uma colônia de fungos forma desenhos, cores e formas de acordo com o ambiente. Cada pequeno fungo acha seu lugar e a pilha de fungos forma como que um indivíduo único, um local de vida, um site.</p>
+<p>
+</p>
+<h2><a name="stack">Stack</a></h2>
+<pre>
+  ----------
+  | Stack  |-----&gt;  URL                           # Tela do site
+  ----------
+      |       ----------
+      |----&gt;  | Stack  |-----&gt;  URL               # Cabeçalho
+      |       ----------           
+      |          |       ----------
+      |          |----&gt;  | Stack  |-----&gt;  URL    # Logomarca
+      |          |       ----------           
+      |          |       ----------
+      |          |----&gt;  | Stack  |-----&gt;  URL    # Menu
+      |                  ----------          
+      |       ----------
+      |----&gt;  | Stack  |-----&gt;  URL               # Texto em html
+              ----------</pre>
+<p>Um Stack está relacionado a uma URL, retorna um array de Stacks e pode ser herdado e livremente modificado.</p>
+<p>Cada Stack pode ser apresentado, editado ou construido (hack). Além disso um Stac possui um usuário responsável.</p>
+<p>
+</p>
+<hr />
+<h1><a name="m__todos">MÉTODOS</a></h1>
+<p>
+</p>
+<h2><a name="new">new</a></h2>
+<p>Retorna uma instância do controlador do aplicativo.
+Agora voê pode rodar ou parar o YAC.</p>
+<p>
+</p>
+<h2><a name="run">run</a></h2>
+<p>Roda o daemon http na porta $port. Default em 80.</p>
+<pre>
+
+    my $port = 80 ;
+    $web-&gt;run ($port) ;</pre>
+<p>
+</p>
+<h2><a name="stop">stop</a></h2>
+<pre>
+    $web-&gt;stop();</pre>
+<p>Para o daemon.</p>
+<p>
+</p>
+<hr />
+<h1><a name="yac">YAC</a></h1>
+<p>
+</p>
+<h2><a name="imnplementa____o_em_catalyst">Imnplementação em Catalyst</a></h2>
+<p>YAC - Baseado em Catalyst</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<pre>
+    script/yac_server.pl</pre>
+<p>
+</p>
+<hr />
+<h1><a name="descri____o">DESCRIÇÃO</a></h1>
+<p>
+</p>
+<h2><a name="estrutura_de_controle">Estrutura de Controle</a></h2>
+<p>O YAC pode carregar uma das 4 máquinas:</p>
+<pre>
+    . Play
+    . Edit
+    . Admin
+    . Hack</pre>
+<p>Cada máquina exige que o usuário possua determinados função e direitos de acesso.</p>
+<p>Para complementar estas máquinas existem os controladores Ws e Plugin.</p>
+<ul>
+<li><strong><a name="m_quina_play" class="item">Máquina Play</a></strong>
+
+<p>A Máquina Play ou controlador Root será sempre a <em>default</em>. Aqui o usuário poderá visualizar os conteúdos em mídia e acessar os menus básicos para navegação.</p>
+</li>
+<li><strong><a name="m_quina_edit" class="item">Máquina Edit</a></strong>
+
+<p>A logged user with editorial rigths can access the Edit machine and change their work.</p>
+<p>Edit machine presents the media content to edit. 
+The default editor is pure text. 
+Other media editor like html, widgets, code, image, animation, xml, svg, json and so on can be added by plugin hooks.</p>
+<p>The menu is same as Play machine plus personal menus and editor menus. The adicional interface will be the personal data editor and menus editor. This new editors will be integrated in the same interface.</p>
+</li>
+<li><strong><a name="admin_machine" class="item">Admin machine</a></strong>
+
+<p>If the user is logged with admin rigths he can access the Admin machine.</p>
+<p>Admin machine presents interfaces for edit and administer users, their data and work. Brings CMS's administration tasks like startup and shutdown the server or enable/disable some plugins.</p>
+<p>The menu is same as Edit machine plus users and admin menus.</p>
+</li>
+<li><strong><a name="hack_machine" class="item">Hack machine</a></strong>
+
+<p>With hacker rigths the user can access the Hack machine.</p>
+<p>Hack machine presents interfaces to plugins, Catalyst hooks and some core helpers. Permit CMS's design and building tasks like create widgets, features or develop a new plugin.</p>
+<p>The menu is same as Edit machine plus users and admin menus.</p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="model_structure">Model Structure</a></h2>
+<ul>
+<li><strong><a name="stack" class="item">Stack</a></strong>
+
+<p>The content handler. The only must in YAC.</p>
+<p>One can create cool stacks!!</p>
+<p>The core implemented stacks are: Content, Control and Widget.</p>
+<dl>
+<dt><strong><a name="control" class="item">Control</a></strong></dt>
+
+<dd>
+<p>A menu manager</p>
+</dd>
+<dt><strong><a name="content" class="item">Content</a></strong></dt>
+
+<dd>
+<p>Handles html content.</p>
+</dd>
+<dt><strong><a name="widget" class="item">Widget</a></strong></dt>
+
+<dd>
+<p>Handles js code content.</p>
+</dd>
+</dl>
+</li>
+<li><strong><a name="auth" class="item">Auth</a></strong>
+
+<p>The authentication class handle users, rules and rights.</p>
+</li>
+<li><strong><a name="user" class="item">User</a></strong>
+
+<p>The user handler.</p>
+</li>
+<li><strong><a name="layout" class="item">Layout</a></strong>
+
+<p>The Layout objects are viewer Catalyst templates at database storage.</p>
+</li>
+<li><strong><a name="plugin" class="item">Plugin</a></strong>
+
+<p>Plugins are Catalyst Plugins handlers.</p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="core_plugins">Core Plugins</a></h2>
+<ul>
+<li>
+<p>Media Player</p>
+</li>
+<li>
+<p>Image slide and carroussel</p>
+</li>
+<li>
+<p>Dialogs and some jqueryUI things</p>
+</li>
+<li>
+<p>fkceditor</p>
+</li>
+<li>
+<p>jsLinb visual editor</p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="see_also">SEE ALSO</a></h1>
+<p><a href="/YAC/Controller/Root.html">the YAC::Controller::Root manpage</a>, <a href="/YAC/Controller/Edit.html">the YAC::Controller::Edit manpage</a>,  <a href="/YAC/Controller/Admin.html">the YAC::Controller::Admin manpage</a>,  <a href="/YAC/Controller/Hack.html">the YAC::Controller::Hack manpage</a>,  <a href="/YAC/Controller/Plugin.html">the YAC::Controller::Plugin manpage</a>,  <a href="/YAC/Controller/WS.html">the YAC::Controller::WS manpage</a>, <em>Catalyst</em></p>
+<p>
+</p>
+<hr />
+<h1><a name="acknowledgements">ACKNOWLEDGEMENTS</a></h1>
+<p>
+</p>
+<h2><a name="benefits_to_the_perl_community">Benefits to the Perl Community</a></h2>
+<p>A CMS (Content Management System) can be a web tool used in some internet business to help and administer media publication. As a market lider let's consider <strong>Drupal</strong>, a php based CMS, reference product used by everywere, a key tool in Obama's USA president campaign. The <strong>Drupal</strong>'s grow in users (designers and coders) and contributed addons bring up to community a lot of php programmer's work and all market demmand for their code.</p>
+<p>The media produced by CMS needs to integrate with other system like CRMs and ERPs or other enterprise legacy. The CMS's oportunity to programmers became from integration tools like a plugin system and addon facilities. It's the <strong>Drupal</strong>'s case. That minimalistic simplicity is the strongest value. Programmers can hook systems in the CMS and final users can plug in at the website instantly.</p>
+<p>The secret: The designer (or anybody) can do functional web without the coder. A CMS needs a simple and clear user interface. But the core integration to other systems where the coder works need to be simple too. Final result: Productivity.</p>
+<p>In the Java, Python, Ruby or Asp world we will find similar tools like Typo, OpenCms, Django and Plone. Some simple, others powefull.</p>
+<p>At perl tools we consider MovableType. Our work will not compete directly with MovableType as it integrates in Catalyst's control level as our implementation and plugin basis. The YAC's paradigma differ in our simplicity and minimalistic goal. Will be ok to one begin in YAC and integrates MovableType anytime.</p>
+<p>The Catalyst Project need a extensible, basic CMS Design Pattern with the eyes in the final user and the hooks that a programmer can play. A CMS more simple than <strong>Drupal</strong> and with the power of <strong>CPAN</strong> and <strong>Catalyst</strong>.</p>
+<p>We will consider cpan tools like Reaction, Mojo and Dancer.</p>
+<p>
+</p>
+<h3><a name="biblio">Biblio</a></h3>
+<p><a href="http://en.wikipedia.org/wiki/Content_management_system">http://en.wikipedia.org/wiki/Content_management_system</a>
+<a href="http://en.wikipedia.org/wiki/List_of_content_management_systems">http://en.wikipedia.org/wiki/List_of_content_management_systems</a>
+<a href="http://www.movabletype.org">http://www.movabletype.org</a>
+<a href="http://search.cpan.org/~okko/Catalyst-Controller-MovableType-0.003/">http://search.cpan.org/~okko/Catalyst-Controller-MovableType-0.003/</a>
+<a href="http://en.wikipedia.org/wiki/OpenCms">http://en.wikipedia.org/wiki/OpenCms</a>
+<a href="http://en.wikipedia.org/wiki/Drupal">http://en.wikipedia.org/wiki/Drupal</a>
+<a href="http://en.wikipedia.org/wiki/Plone_(software)">http://en.wikipedia.org/wiki/Plone_(software)</a>
+<a href="http://en.wikipedia.org/wiki/Typo_(software)">http://en.wikipedia.org/wiki/Typo_(software)</a>
+<a href="http://search.cpan.org/dist/Reaction/">http://search.cpan.org/dist/Reaction/</a>
+<a href="http://search.cpan.org/dist/Mojolicious/">http://search.cpan.org/dist/Mojolicious/</a>
+<a href="http://search.cpan.org/dist/Dancer/">http://search.cpan.org/dist/Dancer/</a></p>
+<p>
+</p>
+<h2><a name="deliverables">Deliverables</a></h2>
+<p>* A so basic CMS Design Pattern on Catalyst with some helpers, tools and simple layout.</p>
+<p>* Ajax user interface to some Catalyst core functions.</p>
+<p>* CPAN module as the first implementation.</p>
+<p>
+</p>
+<h2><a name="project_details">Project Details</a></h2>
+<p>YAC will be a basic CMS Design Pattern with a simple user interface.
+No need to learn perl to play the YAC but a monger will play so well.</p>
+<p>A CMS needs, at least, to create, edit and publish content and to link that content as web address (urls) to navigation or command menus and links. A good addon is a theme manager. The access to the CMS and this features need to be defined at Access Control List. 
+The stronguest feature in the UI will be a simple plugin system integrated at cpan level.</p>
+<p>The idea, as the first implementation, will be an extensible and basic ajax structure around jquery from Catalyst. Consider Catalyst::View::Component::jQuery.</p>
+<p>As simple as an CMS can be, YAC will implement a simple user interface around Catalyst helpers, open hooks and plugins. This open design will encourage YAC's contributions grow.</p>
+<p>The most important pattern to be done will be an open user interface paradigma.  The idea about web interfaces can't neglect Ajax and the HTML 5 protocol.</p>
+<p>
+</p>
+<h3><a name="features">Features</a></h3>
+<ul>
+<li>
+<p>Media Player</p>
+</li>
+<li>
+<p>Image slide and carroussel</p>
+</li>
+<li>
+<p>Dialogs and some jqueryUI things</p>
+</li>
+<li>
+<p>Access Control List Auth</p>
+</li>
+<li>
+<p>HTML WYSIWYG content editor</p>
+</li>
+<li>
+<p>Acces to Catalyst and Plugins hooks at WYSIWYG content editor level</p>
+</li>
+<li>
+<p>Image, media and file upload at WYSIWYG content editor level</p>
+</li>
+<li>
+<p>Virtual file manager at WYSIWYG content editor level</p>
+</li>
+<li>
+<p>Plugin System, Catalyst compatible</p>
+</li>
+<li>
+<p>Hooks to some Catalyst helpers: create View, create Model, create Control</p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="license_and_copyright">LICENSE AND COPYRIGHT</a></h1>
+<p>Copyright 2010 Monsenhor.</p>
+<p>This program is free software; you can redistribute it and/or modify it
+under the terms of either: the GNU General Public License as published
+by the Free Software Foundation; or the Artistic License.</p>
+<p>See <a href="http://dev.perl.org/licenses/">http://dev.perl.org/licenses/</a> for more information.</p>
+
+</body>
+
+</html>

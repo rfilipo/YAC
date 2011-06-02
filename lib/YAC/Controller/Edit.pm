@@ -12,6 +12,17 @@ YAC::Controller::Edit - Catalyst Controller
 
 Catalyst Controller.
 
+Implements the edit system for YAC. CUD as is.
+
+At TT YAC implements the AJAX interface around jquery facilities.
+
+=head1 SYNOPSIS
+   
+One can use the YAC edit interface in AJAX:
+
+   <script>
+   url_create, url
+
 =head1 METHODS
 
 
@@ -56,7 +67,8 @@ sub auto : Private {
 
 =head2 index 
 
-If the user is loged in procced with editing interface for root url.
+If the user is loged in procced with editing interface for url, 
+defaults for root.
 
 Else presents the login page.
 
@@ -68,22 +80,34 @@ sub index : Path : Args(1) {
     else                        { $c->forward( 'search', 'index' ) }
 }
 
+=head2 search 
+
+Private method. Works for this implementation.
+
+Search the url
+        * in CMS database
+        * ???
+presents the result
+
+=cut
+
 sub search : Private {
     my ( $self, $c, $url ) = @_;
-
-    #print $url;
-
-    #FIXME wy dis?
     my $result =
-      $c->model('YAC::Stack')->search( { url => { 'like' => $url } } );
-    my @rs = $c->model('YAC::Stack')->search( { url => { 'like' => $url } } );
-    $c->stash( stacks => \@rs );
-
-    #use Data::Dumper;
-    #print "<pre>"; print Dumper(@rs); print "</pre>";
+      $c->model('YAC::Stack')->search( { id => { 'like' => $url } } );
 
     if ( $result->next ) {
-        $c->stash( template => 'html/index_edit.tt' );
+        my @rs = $c->model('YAC::Stack')->search({ id => { 'like' => $url } });
+        $c->stash( stacks => \@rs );
+        $c->stash( template => 'admin/edit/index_edit.tt' );
+        $c->forward( $c->view('Back') );
+    }
+    elsif ($url == 0) { 
+        # edit a new stack
+        my $stack = &default_stack;
+        $c->stash( stacks => [$stack] );
+        $c->stash( template => 'admin/edit/index_edit.tt' );
+        $c->forward( $c->view('Back') );
     }
     else {
         $c->response->body( '<h1>What? :P  ...' 
@@ -95,18 +119,26 @@ sub search : Private {
 
 sub editor : Local {
     my ( $self, $c, $url ) = @_;
-    my @rs = $c->model('YAC::Stack')->search( { url => { 'like' => $url } } );
-    $c->stash( stacks   => \@rs );
-    $c->stash( template => 'html/editor.tt' );
+    my @rs = [];
+    my $stack = {};
+    if ($url == 0) {  # edit a new stack
+        $stack = &default_stack; 
+    } else {
+        @rs = $c->model('YAC::Stack')->search({ id => { 'like' => $url }});
+        $stack = $rs[0];
+    }
+    $c->stash( stacks   => [$stack] );
+    $c->stash( template => 'admin/edit/editor.tt' );
+    $c->forward( $c->view('Back') );
 }
 
-=head2 url_create
+=head2 create
     
     Create a stack with the supplied tipo, titulo, conteudo, and user
     
 =cut
 
-sub url_create : Local {
+sub create : Local {
     my ( $self, $c, $user_id, $conteudo, $url, $titulo, $tipo ) = @_;
     my $stack = $c->model('YAC::Stack')->create(
         {
@@ -123,20 +155,79 @@ sub url_create : Local {
     );
 }
 
-sub url_update : Local {
-    my ( $self, $c ) = @_;
-    my $stackId  = $c->request->params->{stack_id};
-    my $userId   = $c->request->params->{user_id};
-    my $content = $c->request->params->{content};
-    my $title = $c->request->params->{title};
 
-      #use Data::Dumper;
-      #print Dumper $content;
-      $c->stash(
-        stack    => $content,
-        template => 'html/update_done.tt'
-      );
+=head2 delete
+    
+    Deletes a stack with the supplied id
+    
+=cut
+
+sub delete : Local {
+    my ( $self, $c, $id) = @_;
+    my $stack_rs = $c->model('YAC::Stack')->find(
+            { id  => $id  }
+    );
+    $stack_rs->delete;
+    # Redirect page to list content
+    $c->response->redirect( $c->uri_for('/admin/list_content') );
 }
+
+
+
+sub update : Local {
+    my ( $self, $c ) = @_;
+    my $action  = $c->request->params->{action};
+    my $userId  =  $c->session->{__user}->{id};
+    my $stack = {
+         content =>  $c->request->params->{content} ,
+         titulo  =>  $c->request->params->{titulo}  ,
+         tipo    =>  $c->request->params->{tipo}    ,
+         url     =>  $c->request->params->{url}      
+    };
+
+    # do some dbic update
+    my $id  =  $c->request->params->{stack_id};
+    if ($id == 0){ 
+       # default stack ... create one new on db!!!!
+       my $m_stack = $c->model('YAC::Stack')->create($stack);
+       $m_stack->add_to_stack_users( { user_id => $userId } );
+    } else {
+       # update the stack
+       my $m_stack =  $c->model('YAC::Stack')->find($id);
+       $m_stack->update( $stack);
+    }
+    # return view to client
+    
+    $stack->{id} = $id;
+    if ($action eq "Cancel"){
+       print "Editor Cancelado!!!\n";
+        $c->stash(
+            stack    => $stack,
+            action   => $action,
+            template => 'admin/edit/update_done.tt'
+        );
+    } else {
+        $c->stash(
+            stack    => $stack,
+            action   => $action,
+            template => 'admin/edit/update_done.tt'
+        );
+    }
+    $c->forward( $c->view('Back') );
+}
+
+sub default_stack {
+    my ( $self, $c ) = @_;
+    return  {
+          id      => 0,
+          userId  => $c->session->{__user}->{id},
+          tipo    => 'html',
+          url     => 'undefined_url',
+          titulo   => 'No Title',
+          content => 'YAC by Monsenhor',
+      };
+}
+
 
 =head1 AUTHOR
 

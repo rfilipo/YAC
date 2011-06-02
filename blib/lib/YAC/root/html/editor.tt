@@ -1,0 +1,36 @@
+<html>
+<header>
+<title>Stack Editor</title>
+[% INCLUDE 'html/header_edit.tt'  %]
+<link type="text/css" href="/css/custom-theme/jquery-ui-1.8.9.custom.css" rel="stylesheet" />
+<link type="text/css" rel="stylesheet" href="/js/rte/rte.css" />
+<link type="text/css" rel="stylesheet" href="/css/main.css" />
+</header>
+<body>
+<form action="[% c.uri_for ('/edit','url_update') %]" method='POST'>
+<input type='hidden' name='user_id'  value='[% userId  %]'>
+<input type='hidden' name='stack_id' value='[% stackId  %]'>
+<center>
+<p><b>Title: </b><input name='title' value='[% stacks.0.titulo %]'>
+ <b>Url: </b><input name='url' value='[% stacks.0.url %]'>
+<p><textarea name='content' class='rte-zone'>
+[% INCLUDE 'src/stacks/stack.tt' -%]
+</textarea>
+<p><input type='submit' value='Save'>
+</center>
+</form>
+<script type="text/javascript" src="/js/rte/jquery.rte.js"></script>
+<script type="text/javascript">
+$(".rte-zone").rte({
+    content_css_url: "/css/default.css",
+    media_url: "/images/tango/",
+    max_height: 80
+});
+</script>
+
+
+
+
+
+</body>
+</html>

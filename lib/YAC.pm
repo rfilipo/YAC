@@ -32,6 +32,7 @@ use Catalyst qw/
     Authentication
     Session
     Session::Store::FastMmap
+    Session::Store::File
 
     Session::State::Cookie
 /;
@@ -44,7 +45,7 @@ Version 0.02
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.21';
 $VERSION = eval $VERSION;
 
 # Configure the application.
@@ -60,6 +61,7 @@ __PACKAGE__->config(
     name => 'YAC',
     # Disable deprecated behavior needed by old applications
     disable_component_resolution_regex_fallback => 1,
+    default_view => 'Stack',
 );
 
 # Configure SimpleDB Authentication
@@ -77,7 +79,7 @@ __PACKAGE__->setup();
 
 =head1 AUTHOR
 
-Monsenhor, C<< <ricardo.filipo at gmail.com> >>
+Monsenhor, C<< <monsenhor@cpan.org> >>
 
 =head1 BUGS
 
@@ -157,6 +159,16 @@ YAC - Catalyst based application
     script/yac_server.pl
 
 =head1 DESCRIPTION
+
+=head1 Levels
+
+    -------------------------------------------------------------------
+    |                       YAC  templates                            |
+    -------------------------------------------------------------------
+    |          TT                 |           YAC jQuery              |
+    -------------------------------------------------------------------
+    |                          YAC Catalyst                           |
+    -------------------------------------------------------------------
 
 =head2 Control Structure
 

@@ -1,0 +1,11 @@
+<html>
+[% stacks.push(substack.stack) FOREACH substack = stacks.0.substacks %]
+<header>
+[% INCLUDE 'header.tt'  %]
+<title>[% stacks.0.titulo %]</title>
+</header>
+<body>
+[% INCLUDE 'body.tt'  %]
+<span style="color: red">YAC &copy; <a href="http://www.studiodesign88.com">SD88</a></span>
+<body>
+</html>

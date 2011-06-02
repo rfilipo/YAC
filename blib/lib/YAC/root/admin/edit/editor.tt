@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>Stack Editor</title>
+<script type="text/javascript">
+// Editor works inside a iframe. Then YAC is in the parent window
+var YAC = window.parent.YAC;
+</script>
+<script type="text/javascript" src="/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.8.9.custom.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/js/rte/rte.css" />
+<link type="text/css" rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+<form id="update_editor" action="[% c.uri_for ('/edit','update') %]" method='POST'>
+<input type='hidden' name='user_id'  value='[% stacks.0.userId  %]'>
+<input type='hidden' name='tipo'  value='[% stacks.0.tipo  %]'>
+<input type='hidden' name='stack_id' value='[% stacks.0.id  %]'>
+<center>
+<p><b>Title: </b><input name='titulo' value='[% stacks.0.titulo %]'>
+ <b>Url: </b><input name='url' value='[% stacks.0.url %]'>
+<p><textarea name='content' class='rte-zone'>
+[% stacks.0.content %]
+</textarea>
+<p>
+<input type='submit' name='action' value='Save'>
+<input type='button' value='Cancel' onclick='closeEditor("[% stacks.0.id %]");'>
+</center>
+</form>
+<script type="text/javascript" src="/js/rte/jquery.rte.js"></script>
+<script type="text/javascript">
+/* FIXME to how work in ajax with rte?
+ *
+ * 
+*/  
+var wysywyg = $(".rte-zone").rte({
+    content_css_url: "/css/default.css",
+    media_url: "/images/tango/",
+    max_height: 80
+});
+
+//console.log('Editor WYSYWYG');
+//console.log(wysywyg);
+
+function closeEditor(id){
+       YAC.closeEditor(id, 'stack');
+       // reload panel with list_contents
+       //YAC.loadList("[% c.uri_for ('/admin','list_content') %]");
+       return false;
+}
+
+
+$('form').submit (function () {
+           saveStack();
+        });
+
+function saveStack(){
+/* TODO Work with ajax
+        //Get the data from all the fields
+        var url      = $('input[name=url]');
+        var titulo   = $('input[name=titulo]');
+        var tipo     = $('input[name=tipo]');
+        var user_id  = $('input[name=user_id]');
+        var stack_id = $('input[name=stack_id]');
+        var content  = teste.html(teste.iframe);
+
+        //Simple validation to make sure user entered something
+        //If error found, add hightlight class to the text field
+
+        console.log(content);
+        if (url.val()=='') {
+            url.addClass('hightlight');
+            return false;
+        } else url.removeClass('hightlight');
+
+        if (titulo.val()=='') {
+            titulo.addClass('hightlight');
+            return false;
+        } else titulo.removeClass('hightlight');
+ 
+        var data = 'url=' + url.val() + '&tipo=' + tipo.val() + '&titulo=' + titulo.val() + '&user_id=' + user_id.val() + '&stack_id=' + stack_id.val() + '&content='  + encodeURIComponent(content);
+        //disabled all the text fields
+        $('.text').attr('disabled','true');
+         
+        //show the loading sign
+        $('.loading').show();
+
+        $.ajax({
+            url: "[% c.uri_for ('/edit','update') %]", 
+            type: "POST",
+            data: data,     
+            cache: false,
+            success: function (returned) {              
+                if (returned) {
+                   closeEditor("[% stacks.0.id %]"); 
+                   YAC.loadList("[% c.uri_for ('/admin','list_content') %]");
+                } else alert('Sorry, unexpected error. Please try again later.');               
+            }       
+        });
+
+*/
+    //console.log('lol ...');
+}
+
+</script>
+
+</body>
+</html>

@@ -7,12 +7,17 @@ use Moose;
 
 has user => (
       is       => 'rw',
+      isa      => 'Int',
+      required => 1,
+);
+
+has url => (
+      is       => 'rw',
       isa      => 'Str',
       required => 1,
 );
 
-
-has url => (
+has title => (
       is       => 'rw',
       isa      => 'Str',
       required => 1,
@@ -43,5 +48,15 @@ has 'stacks' => (
    },
 );
 
+=head1 AUTHOR
 
+filipo,,,
 
+=head1 LICENSE
+
+This library is free software, you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
+
+1;

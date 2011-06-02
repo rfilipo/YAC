@@ -1,0 +1,4 @@
+[% FOREACH file IN files -%]
+[% file %]
+[% END -%]
+

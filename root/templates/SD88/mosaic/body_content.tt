@@ -1,0 +1,19 @@
+<center>
+<iframe id="mosaic"
+        name="YACx::Mosaic" 
+        width="640" 
+        height="480" 
+        frameborder="0" 
+        scrolling="auto" 
+        marginheight="0" 
+        marginwidth="0" 
+        src="/mosaic/[% layout %]/[% serie %]/[% width %]" 
+        style="color: #c0c0c0"></iframe>
+
+</center>
+<script>
+// adapt to window size
+var mosaicRel = $('#mosaic').height()/$('#mosaic').width();
+$('#mosaic').width($(document).width() * 0.48);  
+$('#mosaic').height($('#mosaic').width() * mosaicRel);
+</script>

@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	[% META title = 'Login' %]
+	<title>YAC Login</title>
+
+<style>
+html, body {
+        height: 100%;
+}
+
+#loginFrame{
+        width: 800px;
+        height: 560px;
+        margin-left: -400px; 
+        margin-top: -280px; 
+        text-align: center;
+        border: 0px solid #000;
+        background-color: white;
+        color: #000;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        overflow:auto
+}
+#logo{
+        float:right
+}
+</style>
+</head>
+<body>
+
+<div id="loginFrame">
+<!-- gimp table -->
+<table cellpadding="0" border="0" cellspacing="0.0">
+  <tr>
+    <td>
+
+<img src="images/login_0_0.png" width="800" height="61" border="0" usemap="#map" />
+
+<map name="map">
+<!-- #$-:Image map file created by GIMP Image Map plug-in -->
+<!-- #$-:GIMP Image Map plug-in by Maurits Rijk -->
+<!-- #$-:Please do not edit lines starting with "#$" -->
+<!-- #$VERSION:2.3 -->
+<!-- #$AUTHOR:Ricardo Filipo -->
+<area shape="circle" coords="62,32,24" alt="YAC" onmouseover="hiliteYAC();" href="/admin" />
+<area shape="circle" coords="771,31,16" alt="Help" onmouseover="hiliteHelp();" href="#" />
+</map>
+<script>
+function hiliteYAC(){
+   alert('YAC at focus!!!!');
+}
+function hiliteHelp(){
+   alert('Help at focus!!!! I am a child YAC, welcome!!!');
+}
+</script>
+</td>
+</tr><tr>
+<td>
+
+<!-- clock code -->
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<div id="clock">
+ <div class="hour-handle"><span class="handle"></span></div>
+ <div class="minute-handle"><span class="handle"></span></div>
+ <div class="seconds-handle"><span class="handle"></span></div>
+ <img id='pin' src="images/pin.png">
+<style>
+div#clock{
+ width: 175px;
+ height: 80px;
+ margin: 0 auto;
+ position: relative;
+ float: right; 
+ background-image: url(images/bgclock.png);
+
+}
+div#clock div.hour-handle, div#clock div.minute-handle, div#clock div.seconds-handle{
+ height: 18px;
+ width: 6px;
+ position: absolute;
+ top: 45px;
+ left: 85px;
+ overflow: hidden;
+ 
+ -moz-transform-origin: 50% 100%;
+ -webkit-transform-origin: 50% 100%;
+ -o-transform-origin: 50% 100%;
+}
+div#clock div.minute-handle{ height: 30px; top: 8px; width: 4px}
+div#clock div.seconds-handle{ height: 30px; top: 8px; left: 87px; width: 1px;}
+div#clock div.hour-handle{ top: 20px; left: 85px;}
+div#clock #pin{ position:absolute; height: 11px; top: 32px; left: 82px; width: 11px; z-index:100}
+
+
+div#clock div.hour-handle .handle, div#clock div.minute-handle .handle, div#clock div.seconds-handle .handle{
+ display: block;
+ background: #333;
+ width: 180%;
+ height: 100%;
+}
+</style>
+<script>
+$(document).ready(function(){
+
+ function setClock(){
+  var hourHandle = $('div#clock div.hour-handle');
+  var minuteHandle = $('div#clock div.minute-handle');
+  var secondsHandle = $('div#clock div.seconds-handle');
+  var now = new Date();
+
+  var hourDeg = 'rotate(' + ((now.getHours() * 30) + Math.floor(now.getMinutes() / 2)) + 'deg)';
+  var minDeg = 'rotate(' + (now.getMinutes() * 6) + 'deg)';
+  var secDeg = 'rotate(' + (now.getSeconds() * 6) + 'deg)';
+
+  hourHandle.css({
+   '-moz-transform': hourDeg,
+   '-webkit-transform': hourDeg,
+   '-o-transform': hourDeg
+   });
+  minuteHandle.css({
+   '-moz-transform': minDeg,
+   '-webkit-transform': minDeg,
+   '-o-transform': minDeg
+   });
+  secondsHandle.css({
+   '-moz-transform': secDeg,
+   '-webkit-transform': secDeg,
+   '-o-transform': secDeg
+   });
+ }
+
+ setClock();
+ setInterval( setClock, 1000);
+});
+</script>
+</div>
+<!-- end clock code -->
+
+<td>
+  <tr>
+    <td><img alt=" " src="images/login_2_0.png"  style="width: 800px; height: 98px; border-width: 0px;"></td>
+</tr>
+
+  <tr>
+    <td><img alt=" " src="images/login_3_0.png"  style="width: 800px; height: 40px; border-width: 0px;"></td>
+</tr>
+
+<!-- Login form -->
+<tr><td colspan="5">
+<center>
+<form method="post" action="[% c.uri_for('/login') %]">
+<table>
+<tr>
+<td><img alt=" " src="images/username_0_1.png"  style="width: 83px; height: 23px; border-width: 0px;"></td>
+<td><input type="text" name="username" size="40"  style="width: 156px; height: 23px; border-width: 0px; background-color:#d86200"/></td>
+</tr>
+<tr>
+<td><img alt=" " src="images/password_0_1.png"  style="width: 104px; height: 23px; border-width: 0px;"></td>
+<td><input type="password" name="password" size="40" style="width: 155px; height: 23px; border-width: 0px; background-color:#dcdcdc"/></td>
+</tr>
+<tr>
+<td colspan="2"><input type="image" name="submit" value="Submit" src="images/enter_0_1.png" style="width: 122px; height: 72px; border-width: 0px" /></td>
+</tr>
+</table>
+</form>
+</center>
+</td>
+</tr>
+<!-- end login form -->
+</table>
+<!-- end gimp table -->
+<div id="logo">
+<a href="http://www.studiodesign88.com/YAC/"><img src="images/logoSD88.png" style="width:165px; height:89px; border-width:0px"></a>
+</div>
+<!-- end loginFrame div -->
+</div>
+
+</body>
+</html>
+

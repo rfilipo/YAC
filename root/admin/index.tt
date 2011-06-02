@@ -1,0 +1,172 @@
+<html>
+<head>
+<title>YAC Cockpit</title>
+<!--
+Version 0.2.1 paleale
+© Ricardo Filipo 2011
+Artistic License
+--!>
+
+<link rel="stylesheet" href="css/main.css" type="text/css" media="screen">
+
+<link type="text/css" href="css/custom-theme/jquery-ui-1.8.9.custom.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
+<script type="text/javascript" src="js/YAC.js"></script>
+<script type="text/javascript" src="js/yac_admin_0.2.js"></script>
+
+<script language="javascript" type="text/javascript">
+/* Made with GIMP */
+
+/* Preload images: */
+    images_menu = new Array();
+                   
+    images_menu["0_0_plain"] = new  Image();
+    images_menu["0_0_plain"].src = "images/menu_0_0.jpg";
+    images_menu["0_0_hover"] = new  Image();
+    images_menu["0_0_hover"].src = "images/menu_0_0_hover.jpg";
+    images_menu["0_1_plain"] = new  Image();
+    images_menu["0_1_plain"].src = "images/menu_0_1.jpg";
+    images_menu["0_1_hover"] = new  Image();
+    images_menu["0_1_hover"].src = "images/menu_0_1_hover.jpg";
+    images_menu["0_2_plain"] = new  Image();
+    images_menu["0_2_plain"].src = "images/menu_0_2.jpg";
+    images_menu["0_2_hover"] = new  Image();
+    images_menu["0_2_hover"].src = "images/menu_0_2_hover.jpg";
+    images_menu["0_3_plain"] = new  Image();
+    images_menu["0_3_plain"].src = "images/menu_0_3.jpg";
+    images_menu["0_3_hover"] = new  Image();
+    images_menu["0_3_hover"].src = "images/menu_0_3_hover.jpg";
+    images_menu["0_4_plain"] = new  Image();
+    images_menu["0_4_plain"].src = "images/menu_0_4.jpg";
+    images_menu["0_4_hover"] = new  Image();
+    images_menu["0_4_hover"].src = "images/menu_0_4_hover.jpg";
+    images_menu["0_5_plain"] = new  Image();
+    images_menu["0_5_plain"].src = "images/menu_0_5.jpg";
+    images_menu["0_5_hover"] = new  Image();
+    images_menu["0_5_hover"].src = "images/menu_0_5_hover.jpg";
+    images_menu["0_6_plain"] = new  Image();
+    images_menu["0_6_plain"].src = "images/menu_0_6.jpg";
+    images_menu["0_6_hover"] = new  Image();
+    images_menu["0_6_hover"].src = "images/menu_0_6_hover.jpg";
+
+function exchange (image, images_array_name, event)
+  {
+    name = image.name;
+    images = eval (images_array_name);
+
+    switch (event)
+      {
+        case 0:
+          image.src = images[name + "_plain"].src;
+          break;
+        case 1:
+          image.src = images[name + "_hover"].src;
+          break;
+        case 2:
+          image.src = images[name + "_clicked"].src;
+          break;
+        case 3:
+          image.src = images[name + "_hover"].src;
+          break;
+      }
+
+  }
+</script>
+
+
+
+</head>
+<body bgcolor="#f9f1ea">
+
+<table cellpadding="0" border="0" cellspacing="0.0">
+  <tr>
+    <td><img alt=" " src="images/main_0_0.jpg" style="width: 800px;  height: 129px; border-width: 0px;"></td>
+</tr>
+
+  <tr>
+    <td>
+<table cellpadding="0" border="0" cellspacing="0.0">
+  <tr>
+    <td><img alt="" src="images/menu_0_0.jpg" style="width: 13px; height: 38px; border-width: 0px" 
+name="0_0" 
+/></td>
+
+    <td><a href="#"><img alt="users" src="images/menu_0_1.jpg" style="width: 103px; height: 38px; border-width: 0px" 
+name="0_1" 
+      onmouseout="exchange(this, 'images_menu', 0);"
+      onmouseover="exchange(this, 'images_menu', 1);"
+      onclick="list('users');"
+/></a></td>
+
+    <td><a href="#"><img alt="roles" src="images/menu_0_2.jpg" style="width: 141px; height: 38px; border-width: 0px" 
+name="0_2" 
+      onmouseout="exchange(this, 'images_menu', 0);"
+      onmouseover="exchange(this, 'images_menu', 1);"
+      onclick="list('roles');"
+/></a></td>
+
+    <td><a href="#"><img alt="content" src="images/menu_0_3.jpg" style="width: 158px; height: 38px; border-width: 0px" 
+name="0_3" 
+      onmouseout="exchange(this, 'images_menu', 0);"
+      onmouseover="exchange(this, 'images_menu', 1);"
+      onclick="loadList('content');"
+/></a></td>
+
+    <td><a href="#"><img alt="plugins" src="images/menu_0_4.jpg" style="width: 151px; height: 38px; border-width: 0px" 
+name="0_4" 
+      onmouseout="exchange(this, 'images_menu', 0);"
+      onmouseover="exchange(this, 'images_menu', 1);"
+      onclick="list('plugins');"
+/></a></td>
+
+    <td><img alt="" src="images/menu_0_5.jpg" style="width: 224px; height: 38px; border-width: 0px" 
+name="0_5" 
+/></td>
+
+    <td><img alt="" src="images/menu_0_6.jpg" style="width: 10px; height: 38px; border-width: 0px" 
+name="0_6" 
+/></td>
+
+</tr>
+
+</table>
+
+</td>
+</tr>
+
+  <tr>
+    <td>
+<!-- dash's area -->
+<div id="dashboard" style="width: 800px;  height: 380px; border-width: 0px; background-image:url('images/main_2_0.jpg'); overflow:auto">
+
+</div>
+</td>
+</tr>
+
+</table>
+
+<span style="color: red">YAC &copy; <a href="http://www.studiodesign88.com">SD88</a></span>
+<!-- warn dialog -->
+<div id="warn_box" style="position:absolute; left: 350px; top:10px; width: 440px;  height: 101px; border-width: 0px; background-image:url('images/e8e8e8.jpg'); overflow:auto; visibility:visible">
+
+<!--
+<div style="width: 440px;  height: 16px; border-width: 0px; background-image:url('images/tango/warn.png'); background-repeat:no-repeat"></div>
+-->
+
+<div id="warn" class='code iconlist' style="margin:2px;width:434px; height:95px; overflow:auto; "></div>
+</div>
+
+<!-- panel dialog -->
+<div id="panel" class='iconlist' style="position:absolute; left: 14px; top:184px; width: 440px;  height: 300px; border-style:solid; border-width: 2px; border-color: #bc5502; background-image:url('images/e8e8e8.jpg'); overflow:auto; visibility:visible">
+
+<!--
+<div style="width: 32px;  height: 32px; border-width: 0px; background-image:url('images/tango/stack.png')"></div>
+-->
+
+</div>
+
+
+
+</body>
+</html>

@@ -62,7 +62,8 @@ sub auto :Private {
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
-    $c->stash( template => 'html/admin/index.tt' );
+    $c->stash( template => 'admin/index.tt' );
+    $c->forward( $c->view('Back') );
 }
 
 =head2 list_users
@@ -77,7 +78,8 @@ sub list_users: Local {
     my ( $self, $c ) = @_;
 
     $c->stash(users => [$c->model('YAC::User')->all]);
-    $c->stash(template => 'html/admin/list_users.tt');
+    $c->stash(template => 'admin/list_users.tt');
+    $c->forward( $c->view('Back') );
 }
 
 =head2 list_roles
@@ -92,7 +94,8 @@ sub list_roles: Local {
     my ( $self, $c ) = @_;
 
     $c->stash(roles => [$c->model('YAC::Role')->all]);
-    $c->stash(template => 'html/admin/list_roles.tt');
+    $c->stash(template => 'admin/list_roles.tt');
+    $c->forward( $c->view('Back') );
 }
 
 =head2 list_content
@@ -107,9 +110,14 @@ sub list_content: Local {
     my ( $self, $c ) = @_;
 
     $c->stash(stacks => [$c->model('YAC::Stack')->search(
-                { tipo => { like => 'html' } }
+                { tipo => { like => 'html' } },
+                { 
+                    order_by => 'url ASC',
+                   # group_by => [qw/ url/]
+                }
         )]);
-    $c->stash(template => 'html/admin/list_content.tt');
+    $c->stash(template => 'admin/list_content.tt');
+    $c->forward( $c->view('Back') );
 }
 
 
@@ -124,8 +132,13 @@ Show a list of all plugins
 sub list_plugins: Local {
     my ( $self, $c ) = @_;
 
-    $c->stash(plugins => $c->plugins());
-    $c->stash(template => 'html/admin/list_plugins.tt');
+    #$c->stash(plugins => $c->plugins());
+    $c->stash(plugins => {
+        'plugin1' => 'plugin1_data',
+        'plugin2' => 'plugin2_data'
+        });
+    $c->stash(template => 'admin/list_plugins.tt');
+    $c->forward( $c->view('Back') );
 }
 
 

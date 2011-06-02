@@ -1,0 +1,79 @@
+<!-- YAC BODY  -->
+<script type="text/javascript">
+// Editor works inside a iframe. Then YAC is in the parent window
+var YAC = window.parent.YAC;
+</script>
+
+[% VIEW body_view %]
+<!-- STACK_VIEW -->
+  [% BLOCK list %]
+     [% FOREACH i IN item %]
+        [% IF i.tipo == 'html' %]
+<div id="droppable" class="stack">
+<div style="width:16px; height:16px;  float:right" class='up_button' onclick='moveStack("/edit/up_stack/[% i.url  %]", "up")'></div>
+<div style="width:16px; height:16px;  float:right" class='down_button' onclick='moveStack("/edit/down_stack/[% i.url  %]", "down")'></div>
+<div style="width:16px; height:16px;  float:right" class='edit_button' onclick='initEditor("[% i.id  %]")'></div>
+<div style="width:16px; height:16px;  float:right" class='delete_button' onclick='deleteStack("/edit/delete_stack/[% i.url  %]")'></div>
+<div id="[% i.url  %]" class="stack_field">
+[% i.content %]
+</div>
+[% IF i.stacks %]
+  [% tt_stacks = [ ]; tt_stacks.push(stack) FOREACH stack = i.stacks %]
+  [% view.print(tt_stacks.list) %]
+[% END %]
+</div>
+        [% END %]
+     [% END %]
+  [% END %]
+<!-- /STACK_VIEW -->
+[% END %]
+
+[% body_view.print(stacks) %]
+
+<script>
+$(function() {
+        $(".stack_field").editInPlace({
+                url: "[% c.uri_for('/edit/url_update') %]"
+            });
+
+
+
+        $( "#draggable_index" ).draggable();
+        $( "#droppable" ).droppable({
+                drop: function( event, ui ) {
+                        //$( this ) .addClass( "ui-state-highlight" ) .find( "p" ) .html( "Dropped!" );
+                        alert ('HU!');
+                }
+        });
+});
+
+
+function initEditor(id){
+
+   // TODO: usar o YAC!!!!
+   var module = 'content';
+   var editor = YAC.C.Admin.openEditor(id,module);
+/*
+         var $dialog = window.top.$('<div id="editor_stack_'+id+'"></div>')
+                .html('<iframe id="editor_frame_'+id+'" name="editor_frame_'+id+'" width="540" height="350" src="edit/editor/'+id+'"></iframe>')
+                .dialog({
+                        autoOpen: false,
+                        title: 'HTML editor',
+                        resizable: false,
+                        width: 570,
+                        height: 410
+                });
+        $dialog.dialog('open');
+        // prevent the default action, e.g., following a link
+*/
+        return false;
+}
+
+function deleteStack (url) {
+        alert (url);
+}
+
+function moveStack(url,move){
+        alert (url+" "+move)
+}
+</script>
