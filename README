@@ -32,17 +32,19 @@ YAC
 
    Features (Core extensions)
 
-    * Dialogs and some jqueryUI things as template widgets
-    * Access Control List Auth
-    * HTML WYSIWYG content editor
-    * Media Player
-    * Image mosaic, slide and carroussel
-    * Image, media and file upload at WYSIWYG content editor level
-    * Virtual file manager at WYSIWYG content editor level
-    * Extension System, Catalyst compatible, easy instalable
-    * Acces to Catalyst at WYSIWYG content editor level
-    * Web hooks to some Catalyst helpers: create View, create Model, create
-      Control
+    * Dialogs and some jqueryUI things as template widgets     *functional 
+    * Access Control List Auth                                 *functional
+    * HTML WYSIWYG content editor                              *functional
+    * Media Player                                             *not implemented
+    * Image mosaic, slide and carroussel                       *functional
+    * Image insert at WYSIWYG content editor level             *functional
+    * Virtual file manager at WYSIWYG content editor level     *not implemented
+    * Extension System, Catalyst compatible, easy instalable   *functional
+    * Acces to Catalyst at WYSIWYG content editor level        *not implemented
+    * Web hooks to some Catalyst helpers: 
+            create View,                                       *not implemented
+            create Model,                                      *not implemented
+            create Control                                     *not implemented
 
 INSTALLATION
 
