@@ -2,7 +2,7 @@ console.log('1 - Root!!!!!');
 
 /**
   * class YAC.Controller.Root
-  * 
+  *
   */
 
 Root = function ()

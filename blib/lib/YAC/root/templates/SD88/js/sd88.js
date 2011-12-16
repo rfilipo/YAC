@@ -1,6 +1,6 @@
 // sd88 template
 // © Monsenhor Ricardo Filipo 2011 - Orlando, FL
-// Artistic License 
+// Artistic License
 // require: jquery 1.4.4
 
 var my_url = window.location.pathname;
@@ -81,11 +81,11 @@ function initmenu(num){
 
 // open hidden layer
 function mopen(id)
-{      
+{
         // cancel close timer
         mcancelclosetime();
 
-        if(ddmenuitem){ 
+        if(ddmenuitem){
                // donut if menu is visible
                if (ddmenuitem.selector == id) return false;
                // close old layer
@@ -121,7 +121,7 @@ function mcancelclosetime()
 }
 
 // close layer when click-out
-//document.onclick = mclose; 
+//document.onclick = mclose;
 
 /**
  * Website states
@@ -141,7 +141,7 @@ function homepage_state(){
 }
 
     /* state: design88
-    */ 
+    */
 function design88_state(){
       $('#logo_line').width('90%');
       //initmenu(1);
@@ -153,16 +153,16 @@ function design88_state(){
 }
 
 
-/** 
+/**
  *  After load actions
  */
 $(function() {
-   console.log('URL: '+my_url); 
+   console.log('URL: '+my_url);
 
    // define what my state by reading my url
-   if ( my_url == "/" || my_url == '/index.html') 
+   if ( my_url == "/" || my_url == '/index.html')
          homepage_state();
-    
+
    else if ( my_url == "/design88.html")
          design88_state();
 
@@ -175,5 +175,5 @@ $(function() {
     // colorize all links to myself
    var ref = my_url.replace("/", "");
    $('a[href*="'+ref+'"]').css('color','black');
-    
+
 });

@@ -15,5 +15,5 @@
 #     # options.bar
 #     # options.__hash__[:foo]
 #     # options.__hash__[:bar]
-#   end 
+#   end
 # end

@@ -2,7 +2,7 @@
 
 /**
   * class Admin
-  * 
+  *
   */
 
 Admin = function ()

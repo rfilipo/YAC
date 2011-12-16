@@ -1,10 +1,10 @@
 <div id="header" style=
 "z-index:100;text-align: center"><a href=
 "/"><img id="logo"
-       alt="Studio Design 88" 
-       src="/templates/SD88/images/logo.png" 
-       height="100" 
-       width="151" 
+       alt="Studio Design 88"
+       src="/templates/SD88/images/logo.png"
+       height="100"
+       width="151"
        style=
 "height: 100px; width: 151px border-width: 0px; margin-top:1%"></a>
 <br><img id="logo_line" alt="_________________" src=
@@ -15,7 +15,7 @@
 $('#header').width($(document).width());
 $('#header').height($(document).height() * 0.185);
 var logoRel = $('#logo').width()/$('#logo').height();
-$('#logo').height($(document).height() * 0.14);  
+$('#logo').height($(document).height() * 0.14);
 $('#logo').width($('#logo').height() * logoRel);
 $('#logo').css('width', $('#logo').width()+'px');
 $('#logo').css('height', $('#logo').height()+'px');
@@ -116,27 +116,27 @@ $('#logo_line').width($(document).width() * 0.48);
 <div id="menu" style="width:100%;position:absolute; bottom:2px; text-align:center; background-color:#dd261e">
 <table bgcolor="#dd261e"width="100%" cellpadding="0" border="0" cellspacing="0.0">
   <tr>
-    <td style="width:31%"><a href="#"><img id='menu_1' alt="" src="/templates/SD88/images/menu_0_1.png" style="width: 100px; height: 26px; border-width: 0px" 
-name="0_1" 
+    <td style="width:31%"><a href="#"><img id='menu_1' alt="" src="/templates/SD88/images/menu_0_1.png" style="width: 100px; height: 26px; border-width: 0px"
+name="0_1"
       onmouseout="exchange(this, 'images_menu', 0);"
       onmouseover="exchange(this, 'images_menu', 1);"
 /></a>
 </td>
 
-    <td style="width:29%"><a href="#"><img id='menu_2' alt="" src="/templates/SD88/images/menu_0_3.png" style="width: 94px; height: 26px; border-width: 0px" 
-name="0_3" 
+    <td style="width:29%"><a href="#"><img id='menu_2' alt="" src="/templates/SD88/images/menu_0_3.png" style="width: 94px; height: 26px; border-width: 0px"
+name="0_3"
       onmouseout="exchange(this, 'images_menu', 0);"
       onmouseover="exchange(this, 'images_menu', 1);"
 /></a></td>
 
-    <td style="width:25%"><a href="#"><img id='menu_3' alt="" src="/templates/SD88/images/menu_0_5.png" style="width: 82px; height: 26px; border-width: 0px" 
-name="0_5" 
+    <td style="width:25%"><a href="#"><img id='menu_3' alt="" src="/templates/SD88/images/menu_0_5.png" style="width: 82px; height: 26px; border-width: 0px"
+name="0_5"
       onmouseout="exchange(this, 'images_menu', 0);"
       onmouseover="exchange(this, 'images_menu', 1);"
 /></a></td>
 
-    <td style="width:14%"><a href="#"><img id='menu_4' alt="" src="/templates/SD88/images/menu_0_7.png" style="width: 44px; height: 26px; border-width: 0px" 
-name="0_7" 
+    <td style="width:14%"><a href="#"><img id='menu_4' alt="" src="/templates/SD88/images/menu_0_7.png" style="width: 44px; height: 26px; border-width: 0px"
+name="0_7"
       onmouseout="exchange(this, 'images_menu', 0);"
       onmouseover="exchange(this, 'images_menu', 1);"
 /></a></td>

@@ -66,7 +66,7 @@
     -- Settings
 
     INSERT INTO settings VALUES (1, 'YAC', 'http://www.kobkob.com.br', 'YAC', 2011-01-02);
- 
+
     -- Stacks
 
     INSERT INTO stack VALUES (1, 'html', 'index', 'YAC', '<h1>YAC</h1>');

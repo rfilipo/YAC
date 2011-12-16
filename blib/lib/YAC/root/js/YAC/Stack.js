@@ -1,7 +1,7 @@
 
 /**
   * class Stack
-  * 
+  *
   */
 
 Stack = function ()
@@ -24,29 +24,29 @@ Stack.prototype._init = function ()
 }
 
 /**
- * 
+ *
  */
 Stack.prototype.url = function ()
 {
-    
+
 }
 
 
 /**
- * 
+ *
  */
 Stack.prototype.content = function ()
 {
-    
+
 }
 
 
 /**
- * 
+ *
  */
 Stack.prototype.stacks = function ()
 {
-    
+
 }
 
 

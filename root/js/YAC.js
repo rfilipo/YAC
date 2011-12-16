@@ -1,7 +1,7 @@
 if (!console){alert('Por favor, ligue o firebug!!!!');}
 
 
-/** YAC 0.2  license Affero GPL 
+/** YAC 0.2  license Affero GPL
  * required libs:
  * jquery 1.4.4
  */
@@ -12,23 +12,23 @@ var yac_version = '0.21';
 console.log('YAC - jquery implementation ' + yac_version);
 /**
   * namespace YAC
-        YAC uses static objects to create namespaces in js 
+        YAC uses static objects to create namespaces in js
   *
-  * YAC.js organizes the YAC infrastructure, deals with urls, Ajax and 
+  * YAC.js organizes the YAC infrastructure, deals with urls, Ajax and
   * implements the YAC classes.
   */
 
  /**
   * YAC Ajax infrastructure.
 
-  * As a MVC presents classes, static objects and functions under 
+  * As a MVC presents classes, static objects and functions under
   * that default namespace: Y.M, Y.V and Y.C ressembling to YAC's
   * Model, View an Controller.
   * Controller implements the UI actions.
-  * Views are YACWidgets or simple JQuery elements 
+  * Views are YACWidgets or simple JQuery elements
   * Models are based in Catalyst urls.
-  */ 
-  
+  */
+
 var YAC        = {};
 
 YAC.Controller = {};
@@ -56,22 +56,22 @@ Y.C = YAC.Controller;
 Y.M = YAC.Model;
 Y.V = YAC.View;
 
-/** 
+/**
  * Static Views
  */
 
-/** 
+/**
  * Content element
- * The html document must have a div with id='content' 
+ * The html document must have a div with id='content'
  */
 Y.V.Root.content = function (){
      return $('#content');
 }
 
 
-/** 
+/**
  * Warn element
- * The html document must have a div with id='warn' 
+ * The html document must have a div with id='warn'
  */
 Y.V.Admin.warn = function (){
     return document.getElementById("warn");
@@ -79,7 +79,7 @@ Y.V.Admin.warn = function (){
 
 /**
  * Panel element
- * The html document must have a div with id='panel' 
+ * The html document must have a div with id='panel'
  */
 Y.V.Admin.panel = function (){
     return $('#panel');
@@ -141,7 +141,7 @@ Y.C.Admin.closeEditor = function ( id, module ) {
 Y.closeEditor = Y.C.Admin.closeEditor;
 
 Y.C.Admin.openEditor = function (id, module ) {
-        Y.V.focusEditor = new Y.V.Editor(id,module); 
+        Y.V.focusEditor = new Y.V.Editor(id,module);
         return Y.V.focusEditor;
 }
 /*
@@ -162,12 +162,12 @@ Y.C.Admin.remove = function (tipo, id) {
             $("#panel").html(msg);
             alert ('Timeout! Redirecting to login ...');
             top.location.href="/login";
-          } 
+          }
         });
 }
 
 Y.C.Admin.newStack = function ( ) {
-        Y.V.focusEditor = new Y.V.Editor(0,'stack'); 
+        Y.V.focusEditor = new Y.V.Editor(0,'stack');
         // 0 is a new stack id in YAC
         return Y.V.focusEditor;
 }
@@ -175,13 +175,13 @@ Y.C.Admin.newStack = function ( ) {
 
 /**
   * YAC js classes.
-  * 
+  *
   */
 
 /**
   * class Y.V.Widget
   * Abstract class
-  * Can scale with page, have x, y, h and w 
+  * Can scale with page, have x, y, h and w
   */
 
 Y.V.Widget = function ()
@@ -202,19 +202,19 @@ Y.V.Widget.prototype._init = function ()
      */
     this.m_id = "_";
     /**
-     * 
+     *
      */
     this.m_width = 0;
     /**
-     * 
+     *
      */
     this.m_height = 0;
     /**
-     * 
+     *
      */
     this.m_top = 0;
     /**
-     * 
+     *
      */
     this.m_left = 0;
     /**
@@ -229,9 +229,9 @@ Y.V.Widget.prototype._init = function ()
 }
 
 /**
- * 
+ *
  * @param id
-    *      
+    *
  */
 Y.V.Widget.prototype.setId = function (id)
 {
@@ -240,7 +240,7 @@ Y.V.Widget.prototype.setId = function (id)
 
 
 /**
- * 
+ *
  */
 Y.V.Widget.prototype.getId = function ()
 {
@@ -248,7 +248,7 @@ Y.V.Widget.prototype.getId = function ()
 }
 
 /**
- * 
+ *
  */
 Y.V.Widget.prototype.scale = function (k)
 {
@@ -276,7 +276,7 @@ Y.V.Widget.prototype.scale = function (k)
   * Deal with url and model
 
 TODO: separate view
- 
+
   */
 
 Y.V.Editor = function (id, module)
@@ -312,7 +312,7 @@ Y.V.Editor = function (id, module)
                 });
     this.$editor.attr('id', "editor_"+module+"_"+id);
   } else{
-    // TODO: 
+    // TODO:
     var module = 'stack';
     var tbhtml = '<table><tr><td><div id="bt_new" onclick="edit()">Insert New Content</div></td></tr></table>';
 
@@ -328,13 +328,13 @@ Y.V.Editor = function (id, module)
             });
     $editor.attr('id', wid);
   }
- 
+
 }
 
 Y.V.Editor.prototype.url = function (id, module)
 {
     this.m_url = '/edit/'+module+'/'+id;
-    return this.m_url; 
+    return this.m_url;
 }
 
 Y.V.Editor.prototype._init = function (id, module)
@@ -345,28 +345,28 @@ Y.V.Editor.prototype._init = function (id, module)
      */
     this.m_id = id;
     /**
-     * 
+     *
      */
     this.m_width = 0;
     /**
-     * 
+     *
      */
     this.m_height = 0;
     /**
-     * 
+     *
      */
     this.m_top = 0;
     /**
-     * 
+     *
      */
     this.m_left = 0;
     /**
      * The spected should be a HTML code
      */
     this.m_content = $("<p>VAZIO</p>");
-    
+
     this.m_module = module;
-    
+
     /**Aggregations: */
 
     /**Compositions: */
@@ -383,7 +383,7 @@ Y.V.Editor.prototype._init = function (id, module)
 
 /**
   * class Y.V.Body
-  * 
+  *
   */
 
 Y.V.Body = function ()
@@ -408,8 +408,8 @@ Y.V.Body.prototype._init = function ()
 
 
 /**
- * 
- * 
+ *
+ *
  */
 Y.V.Body.prototype.setContent = function (url)
 {
@@ -423,7 +423,7 @@ Y.V.Body.prototype.setContent = function (url)
 
 /**
   * class Y.V.Footer
-  * 
+  *
   */
 
 Y.V.Footer = function ()
@@ -448,7 +448,7 @@ Y.V.Footer.prototype._init = function ()
 
 /**
   * class Y.V.Header
-  * 
+  *
   */
 
 Y.V.Header = function ()
@@ -478,7 +478,7 @@ Y.V.Header.prototype._init = function ()
 }
 
 /**
- * 
+ *
  */
 Y.V.Header.prototype.scale = function (k)
 {
@@ -501,7 +501,7 @@ Y.V.Header.prototype.scale = function (k)
 
 /**
   * class Y.V.LeftPane
-  * 
+  *
   */
 
 Y.V.LeftPane = function ()
@@ -517,7 +517,7 @@ Y.V.LeftPane.prototype = new Y.V.Widget ();
  */
 Y.V.LeftPane.prototype._init = function ()
 {
- 
+
     /**Aggregations: */
 
     /**Compositions: */
@@ -525,7 +525,7 @@ Y.V.LeftPane.prototype._init = function ()
 }
 
 /**
- * 
+ *
  */
 Y.V.LeftPane.prototype.scale = function (k)
 {
@@ -541,10 +541,10 @@ Y.V.LeftPane.prototype.scale = function (k)
   this.m_top = ofbb.top * k;
   $('#'+this.m_id).offset({top: this.m_top , left: this.m_left});
 }
- 
+
 /**
   * class Y.V.RightPane
-  * 
+  *
   */
 
 Y.V.RightPane = function ()
@@ -569,7 +569,7 @@ Y.V.RightPane.prototype._init = function ()
 
 /**
   * class Y.V.Menu
-  * 
+  *
   */
 
 Y.V.Menu = function ()
@@ -595,7 +595,7 @@ Y.V.Menu.prototype._init = function ()
 }
 
 /**
- * 
+ *
  */
 Y.V.Menu.prototype.scale = function (k)
 {
@@ -604,7 +604,7 @@ Y.V.Menu.prototype.scale = function (k)
   var fs = str.replace(/px/gi,'');
   fs *= k;
   $('.menu').css('font-size', fs + "px");
-  
+
   // div sizes
   $('.menu').width(     $('.menu').width() * k);
   $('.menu').height(    $('.menu').height() * k);
@@ -667,29 +667,29 @@ Y.M.Stack.prototype._init = function ()
 }
 
 /**
- * 
+ *
  */
 Y.M.Stack.prototype.url = function ()
 {
-    
+
 }
 
 
 /**
- * 
+ *
  */
 Y.M.Stack.prototype.content = function ()
 {
-    
+
 }
 
 
 /**
- * 
+ *
  */
 Y.M.Stack.prototype.stacks = function ()
 {
-    
+
 }
 
 
@@ -706,7 +706,7 @@ Y.M.Stack.prototype.stacks = function ()
 
 /**
   * class Y.M.Catalyst
-  * 
+  *
   */
 
 Y.M.Catalyst = function ()
@@ -730,29 +730,29 @@ Y.M.Catalyst.prototype._init = function ()
 }
 
 /**
- * 
+ *
  */
 Y.M.Catalyst.prototype.url = function ()
 {
-    
+
 }
 
 
 /**
- * 
+ *
  */
 Y.M.Catalyst.prototype.content = function ()
 {
-    
+
 }
 
 
 /**
- * 
+ *
  */
 Y.M.Catalyst.prototype.stacks = function ()
 {
-    
+
 }
 
 
@@ -763,7 +763,7 @@ Y.M.Catalyst.prototype.stacks = function ()
 
 /**
   * class Y.M.Admin
-  * 
+  *
   */
 
 Y.M.Admin = function (module)
@@ -790,25 +790,25 @@ Y.M.Admin.prototype._init = function (module)
 }
 
 /**
- * 
+ *
  */
 Y.M.Admin.prototype.url = function ( id, module)
 {
     this.m_url = "/admin/list_"+module;
-    return this.m_url; 
+    return this.m_url;
 }
 
 
 /**
- * 
+ *
  */
 Y.M.Admin.prototype.content = function ()
 {
-    
+
 }
 
 
-/** 
+/**
  * Static Model Objects
  */
 

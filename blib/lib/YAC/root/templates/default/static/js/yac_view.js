@@ -22,13 +22,13 @@ $(function(){
    //rightPane = new MyRightPane();
    footer    = new MyFooter();
    menu      = new MyMenu();
- 
+
    ////////////////////////////////////////////////////////
    /** inicia o site
    */
-   
+
    // Monta a tela
-   montaTela();  
+   montaTela();
    // Cria o mapa
    //doMap('bodyContainer');
    // load the content in body
@@ -38,7 +38,7 @@ $(function(){
    $(".menu").hover(
      function () {
        $(this).css('color', '#c0c0c0');
-     }, 
+     },
      function () {
        $(this).css('color', '#6c6d6f');
      }
@@ -63,8 +63,8 @@ $(function(){
      }
    });
 
-   // Dialog  
-   /*                     
+   // Dialog
+   /*
    $('#janela').dialog({
        autoOpen: false,
        width: 400,
@@ -72,7 +72,7 @@ $(function(){
   //$('#bodyFrame').attr('src', "/vivaorlando/index.php/blog/welcome");
    */
 
-  
+
    // Carrega a oferta do momento a cada 13 segundos
    // FIXME passar o 13 para o settimeout !!!!
    //frameOfertas(0,13000);
@@ -140,7 +140,7 @@ function frameOfertas(tempo, oferta)
   var noferta = 0;
   while (noferta == 0 ) {
     console.log (refresh + " -> refresh");
-    if (!oferta) oferta = 0; 
+    if (!oferta) oferta = 0;
     refresh ++;
     noferta=setTimeout("updateOfertas(" + oferta + ")",tempo);
     console.log(noferta);
@@ -150,7 +150,7 @@ function frameOfertas(tempo, oferta)
 function updateOfertas(oferta) {
     //$('#oferta').load('?/taonde/taqui/'+coisa);
     console.log(oferta);
-    
+
 }
 
 // Common functions
@@ -174,22 +174,22 @@ function fechaJanela(){
 
 function pageWidth() {
     return window.innerWidth != null? window.innerWidth : document.documentElement && document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body != null ? document.body.clientWidth : null;
-} 
+}
 
 function pageHeight() {
     return  window.innerHeight != null? window.innerHeight : document.documentElement && document.documentElement.clientHeight ?  document.documentElement.clientHeight : document.body != null? document.body.clientHeight : null;
-} 
+}
 
 function posLeft() {
     return typeof window.pageXOffset != 'undefined' ? window.pageXOffset :document.documentElement && document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ? document.body.scrollLeft : 0;
-} 
+}
 
 function posTop() {return typeof window.pageYOffset != 'undefined' ?  window.pageYOffset : document.documentElement && document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ? document.body.scrollTop : 0;
-} 
+}
 
 function posRight() {
     return posLeft()+pageWidth();
-} 
+}
 
 function posBottom() {
     return posTop()+pageHeight();

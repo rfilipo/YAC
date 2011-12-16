@@ -20,7 +20,7 @@ Artistic License
 
 /* Preload images: */
     images_menu = new Array();
-                   
+
     images_menu["0_0_plain"] = new  Image();
     images_menu["0_0_plain"].src = "images/menu_0_0.jpg";
     images_menu["0_0_hover"] = new  Image();
@@ -88,44 +88,44 @@ function exchange (image, images_array_name, event)
     <td>
 <table cellpadding="0" border="0" cellspacing="0.0">
   <tr>
-    <td><img alt="" src="images/menu_0_0.jpg" style="width: 13px; height: 38px; border-width: 0px" 
-name="0_0" 
+    <td><img alt="" src="images/menu_0_0.jpg" style="width: 13px; height: 38px; border-width: 0px"
+name="0_0"
 /></td>
 
-    <td><a href="#"><img alt="users" src="images/menu_0_1.jpg" style="width: 103px; height: 38px; border-width: 0px" 
-name="0_1" 
+    <td><a href="#"><img alt="users" src="images/menu_0_1.jpg" style="width: 103px; height: 38px; border-width: 0px"
+name="0_1"
       onmouseout="exchange(this, 'images_menu', 0);"
       onmouseover="exchange(this, 'images_menu', 1);"
       onclick="list('users');"
 /></a></td>
 
-    <td><a href="#"><img alt="roles" src="images/menu_0_2.jpg" style="width: 141px; height: 38px; border-width: 0px" 
-name="0_2" 
+    <td><a href="#"><img alt="roles" src="images/menu_0_2.jpg" style="width: 141px; height: 38px; border-width: 0px"
+name="0_2"
       onmouseout="exchange(this, 'images_menu', 0);"
       onmouseover="exchange(this, 'images_menu', 1);"
       onclick="list('roles');"
 /></a></td>
 
-    <td><a href="#"><img alt="content" src="images/menu_0_3.jpg" style="width: 158px; height: 38px; border-width: 0px" 
-name="0_3" 
+    <td><a href="#"><img alt="content" src="images/menu_0_3.jpg" style="width: 158px; height: 38px; border-width: 0px"
+name="0_3"
       onmouseout="exchange(this, 'images_menu', 0);"
       onmouseover="exchange(this, 'images_menu', 1);"
       onclick="loadList('content');"
 /></a></td>
 
-    <td><a href="#"><img alt="plugins" src="images/menu_0_4.jpg" style="width: 151px; height: 38px; border-width: 0px" 
-name="0_4" 
+    <td><a href="#"><img alt="plugins" src="images/menu_0_4.jpg" style="width: 151px; height: 38px; border-width: 0px"
+name="0_4"
       onmouseout="exchange(this, 'images_menu', 0);"
       onmouseover="exchange(this, 'images_menu', 1);"
       onclick="list('plugins');"
 /></a></td>
 
-    <td><img alt="" src="images/menu_0_5.jpg" style="width: 224px; height: 38px; border-width: 0px" 
-name="0_5" 
+    <td><img alt="" src="images/menu_0_5.jpg" style="width: 224px; height: 38px; border-width: 0px"
+name="0_5"
 /></td>
 
-    <td><img alt="" src="images/menu_0_6.jpg" style="width: 10px; height: 38px; border-width: 0px" 
-name="0_6" 
+    <td><img alt="" src="images/menu_0_6.jpg" style="width: 10px; height: 38px; border-width: 0px"
+name="0_6"
 /></td>
 
 </tr>

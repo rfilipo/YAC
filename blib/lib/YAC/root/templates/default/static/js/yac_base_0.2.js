@@ -1,4 +1,4 @@
-// YAC 0.2  license Affero GPL 
+// YAC 0.2  license Affero GPL
 var yac_version = 0.2;
 
 if (!console){alert('Por favor, ligue o firebug!!!!');}
@@ -6,14 +6,14 @@ if (!console){alert('Por favor, ligue o firebug!!!!');}
 console.log('YAC - jquery implementation ' + yac_version);
 /**
   * namespace YAC
-  * 
+  *
   */
 var YAC        = {};
 YAC.Controller = {};
 YAC.Model      = {};
 YAC.View       = {};
 
-// this is a developer flag, 
+// this is a developer flag,
 var yac_mode   = 6;
 
 $.getScript('js/YAC/yac_loader.js', function()

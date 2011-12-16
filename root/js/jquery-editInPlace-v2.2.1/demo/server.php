@@ -16,7 +16,7 @@
  * http://code.google.com/p/jquery-in-place-editor/
  *
  */
- 
+
 // sleep for a half or a second
 // for demonstrating the 'saving...' functionality on the front end
 usleep(1000000 * .5);
@@ -32,7 +32,7 @@ usleep(1000000 * .5);
 
 /*
  * since the in place editor will display whatever the server returns
- * we're just going to echo out what we recieved. In reality, we can 
+ * we're just going to echo out what we recieved. In reality, we can
  * do validation and filtering on this value to determine if it was valid
 */
 echo $_POST['update_value'];

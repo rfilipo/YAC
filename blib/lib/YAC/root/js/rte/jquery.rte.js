@@ -1,5 +1,5 @@
 /*
-* 
+*
 YAC editor Plugin
 Copyright (cc) 2011 jan Ricardo Filipo <ricardo.filipo at gmail.com>
 
@@ -8,7 +8,7 @@ jQuery RTE plugin 0.5.1 - create a rich text form for Mozilla, Opera, Safari and
 *
 * Copyright (c) 2009 Batiste Bieler
 
-at 
+at
 
 * Distributed under the GPL Licenses.
 * Distributed under the MIT License.
@@ -277,12 +277,12 @@ if(typeof $.fn.rte === "undefined") {
             }
             return node;
         };
-        
+
         // enable design mode now
         enableDesignMode();
 
     }); //return this.each
-    
+
     }; // rte
 
 } // if

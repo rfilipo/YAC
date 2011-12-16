@@ -30,7 +30,7 @@ TODO
 - Unify usage of text and html to take and deliver content to the inline editor and enable the user to choose with a setting (document carefully as that will change the default behaviour)
   Solve by callback interface that can transform the code if needed.
 - Allow continous validation / transformation while the user types. I.e. wiki-edit with live preview (from server / function)
-- add validation callback to be asked before any submitting (this could also be called continuous while editing 
+- add validation callback to be asked before any submitting (this could also be called continuous while editing
   (for each character?) maybe a dedicated callback for each would be valuable)
 - allow aditional_params to be set as json/object that is then serialized with correct encoding on submit
 - consider size parameter for the inline edit box (but this can already nicely accomplished through css)
@@ -117,7 +117,7 @@ didSubmitContent:
 shouldUpdateContent: // get notification to update the content, either the view, wrong direction..., something should call this¿
 willUpdateContent: // could be callback after we get something from the server (also didUpdateContent)
 updateContent: // could use this to decide between html() and text(), could call changeContent
-didUpdateContent: 
+didUpdateContent:
 
 // maybe
 shouldSendToServer:

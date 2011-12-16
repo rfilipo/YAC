@@ -51,7 +51,7 @@ sub new {
 =head2 run
 
 Run the http daemon at param port
-    
+
     my $port = 80 ;
     $web->run ($port) ;
 
@@ -69,7 +69,7 @@ Stops the daemon.
 
 =cut
 
-sub stop { 
+sub stop {
     print 'Me implemente!';
 }
 
@@ -126,19 +126,19 @@ L<YAC::Controller::Root>, L<Catalyst>
 
 =head2 Benefits to the Perl Community
 
-A CMS (Content Management System) can be a web tool used in some internet business to help and administer media publication. As a market lider let's consider B<Drupal>, a php based CMS, reference product used by everywere, a key tool in Obama's USA president campaign. The B<Drupal>'s grow in users (designers and coders) and contributed addons bring up to community a lot of php programmer's work and all market demmand for their code. 
+A CMS (Content Management System) can be a web tool used in some internet business to help and administer media publication. As a market lider let's consider B<Drupal>, a php based CMS, reference product used by everywere, a key tool in Obama's USA president campaign. The B<Drupal>'s grow in users (designers and coders) and contributed addons bring up to community a lot of php programmer's work and all market demmand for their code.
 
 The media produced by CMS needs to integrate with other system like CRMs and ERPs or other enterprise legacy. The CMS's oportunity to programmers became from integration tools like a plugin system and addon facilities. It's the B<Drupal>'s case. That minimalistic simplicity is the strongest value. Programmers can hook systems in the CMS and final users can plug in at the website instantly.
 
 The secret: The designer (or anybody) can do functional web without the coder. A CMS needs a simple and clear user interface. But the core integration to other systems where the coder works need to be simple too. Final result: Productivity.
 
-In the Java, Python, Ruby or Asp world we will find similar tools like Typo, OpenCms, Django and Plone. Some simple, others powefull. 
+In the Java, Python, Ruby or Asp world we will find similar tools like Typo, OpenCms, Django and Plone. Some simple, others powefull.
 
 At perl tools we consider MovableType. Our work will not compete directly with MovableType as it integrates in Catalyst's control level as our implementation and plugin basis. The YAC's paradigma differ in our simplicity and minimalistic goal. Will be ok to one begin in YAC and integrates MovableType anytime.
 
 The Catalyst Project need a extensible, basic CMS Design Pattern with the eyes in the final user and the hooks that a programmer can play. A CMS more simple than B<Drupal> and with the power of B<CPAN> and B<Catalyst>.
 
-We will consider cpan tools like Reaction, Mojo and Dancer. 
+We will consider cpan tools like Reaction, Mojo and Dancer.
 
 =head3 Biblio
 
@@ -168,10 +168,10 @@ L<http://search.cpan.org/dist/Dancer/>
 YAC will be a basic CMS Design Pattern with a simple user interface.
 No need to learn perl to play the YAC but a monger will play so well.
 
-A CMS needs, at least, to create, edit and publish content and to link that content as web address (urls) to navigation or command menus and links. A good addon is a theme manager. The access to the CMS and this features need to be defined at Access Control List. 
-The stronguest feature in the UI will be a simple plugin system integrated at cpan level.  
+A CMS needs, at least, to create, edit and publish content and to link that content as web address (urls) to navigation or command menus and links. A good addon is a theme manager. The access to the CMS and this features need to be defined at Access Control List.
+The stronguest feature in the UI will be a simple plugin system integrated at cpan level.
 
-The idea, as the first implementation, will be an extensible and basic ajax structure around jquery from Catalyst. Consider Catalyst::View::Component::jQuery. 
+The idea, as the first implementation, will be an extensible and basic ajax structure around jquery from Catalyst. Consider Catalyst::View::Component::jQuery.
 
 As simple as an CMS can be, YAC will implement a simple user interface around Catalyst helpers, open hooks and plugins. This open design will encourage YAC's contributions grow.
 

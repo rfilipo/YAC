@@ -8,7 +8,7 @@
 <div class='draggable'>
     <li id="[% stack.url %]" class='stack'><a target="_blank" href="/[% stack.url %]">  [% stack.titulo %]</a> [% stack.url %]
 [% IF stack.substacks.size -%]
- || 
+ ||
  [% stack.substacks.size -%] substacks
 [% END -%]
 <div class='btDelete' style="width:16px; height:16px; float:right; cursor: pointer;" onclick="deletar('stack', '[% stack.id %]')"></div>

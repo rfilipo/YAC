@@ -55,7 +55,7 @@ sub auto :Private {
 
 
 
-=head2 index 
+=head2 index
 
 =cut
 
@@ -111,7 +111,7 @@ sub list_content: Local {
 
     $c->stash(stacks => [$c->model('YAC::Stack')->search(
                 { tipo => { like => 'html' } },
-                { 
+                {
                     order_by => 'url ASC',
                    # group_by => [qw/ url/]
                 }

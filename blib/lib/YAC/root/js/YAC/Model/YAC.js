@@ -2,7 +2,7 @@
 
 /**
   * class YAC
-  * 
+  *
   */
 
 YAC = function ()

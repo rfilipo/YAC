@@ -10,8 +10,8 @@ var mosaic_version = "0.2";
 // Define and verify requirements
 if (!window.parent.YAC){
    alert("YAC not found! Mosaic requires YAC... Bad!");
-} 
-var needed_YAC = "0.21"; 
+}
+var needed_YAC = "0.21";
 if ( ! window.parent.yac_version || window.parent.yac_version < needed_YAC ) {
    alert("YAC Version too slow! "+window.parent.yac_version+". I need version "+needed_YAC+". I think it won't work ...")
 }
@@ -27,7 +27,7 @@ $(function(){
     var m_h = $(window).height();
     var k = m_w/8
     var serie = 'logos';   //FIXME!!!!!
-    $('.m_0').width(k);    
+    $('.m_0').width(k);
     $('.m_0').height(k);
     console.log(m_w+' : '+m_h);
     /*
@@ -110,13 +110,13 @@ function showMosaic(img, $overflow){
    //console.log(image.src);
    if (!image.src){return;};
    image.frame = $('#mosaic_dialog');
-   image.arrowLeft = "<div style='cursor:pointer;z-index:3000;position:absolute;top:50%;left:12px'><img id='arrow_left' width='50' height='39' src='images/arrow_white_left.png' ></div>"; 
-   image.arrowRight = "<div style='cursor:pointer;z-index:3000;position:absolute;top:50%;right:12px'><img id='arrow_right' width='50' height='39' src='images/arrow_white_right.png'></div>"; 
+   image.arrowLeft = "<div style='cursor:pointer;z-index:3000;position:absolute;top:50%;left:12px'><img id='arrow_left' width='50' height='39' src='images/arrow_white_left.png' ></div>";
+   image.arrowRight = "<div style='cursor:pointer;z-index:3000;position:absolute;top:50%;right:12px'><img id='arrow_right' width='50' height='39' src='images/arrow_white_right.png'></div>";
    image.code = "<img id='image' width='100%' height='100%' src='"+image.src+"'>";
    image.bclose = '<div onclick="$(\'#mosaic_dialog\').hide()" style="position:absolute;top:12px;right:12px"><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-state-default ui-icon-closethick">close</span></a></div>';
    image.frame.html("<div>"+image.code+image.bclose+image.arrowLeft+image.arrowRight+"</div>");
    image.frame.css('visibility','visible');
-   
+
    var myI = 0;
    var nextI = 0;
    var prevI = 0;
@@ -144,17 +144,17 @@ function showMosaic(img, $overflow){
        function(){
            this.src="images/arrow_white_right.png"
    });
-   
+
    $("#arrow_left").click(function(){
          $('#image').attr('src',theImages[myI-1]);
-         myI--; 
+         myI--;
          showArrows(theImages, myI);
-   }); 
+   });
     $("#arrow_right").click(function(){
         $('#image').attr('src',theImages[myI+1]);
          myI++;
          showArrows(theImages, myI);
-   }); 
+   });
    image.frame.show();
 */
 }
@@ -176,7 +176,7 @@ function mosaicAction(img)
   image.$frame.attr('src', '/mosaic/show/logos/'+image.$img.attr('alt'));
 
   // image to size of mosaic frame
-  // because mosaic frame format is relative to page we need to pick 
+  // because mosaic frame format is relative to page we need to pick
   // image original relations format in pixels to resize
   var rel = image.$img.attr('refy')/image.$img.attr('refx');
   var newWidth  = window.parent.$('#mosaic').width() + 4;
@@ -202,7 +202,7 @@ function mosaicAction(img)
   image.$frame.css("left",h_center-(h_image/2)+"px");
   image.$frame.css("top",v_center-v_image/2+"px");
 */
-  // we want to put image over mosaic for SD88 tt, 
+  // we want to put image over mosaic for SD88 tt,
   // offset in pixels. The header have 15% for logo and 3px for line
   var yoffset = (image.$overflow.height() * 0.18) - 2 ;
   var xoffset = image.$overflow.width() * 0.26 - 2 ;

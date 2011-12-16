@@ -269,12 +269,12 @@ if(typeof $.fn.rte === "undefined") {
             }
             return node;
         };
-        
+
         // enable design mode now
         enableDesignMode();
 
     }); //return this.each
-    
+
     }; // rte
 
 } // if

@@ -5,7 +5,7 @@ use base 'Catalyst::Model::DBIC::Schema';
 
 __PACKAGE__->config(
     schema_class => 'YAC::Schema',
-    
+
     connect_info => {
         dsn => 'dbi:SQLite:yac.db',
         user => '',
