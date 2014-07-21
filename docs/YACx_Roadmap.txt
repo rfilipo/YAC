@@ -18,6 +18,6 @@ Extensions:
 There are some levels to hook an extension in YAC:
 
 1 - Config
-2 - Core structure 
+2 - Core structure
 3 - Catalyst structure
 4 - Templating, widgeting

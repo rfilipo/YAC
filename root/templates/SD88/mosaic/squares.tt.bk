@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head profile='http://kobkob.org/xmdp/squares.html'>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="author" lang="en" content="monsenhor" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
 <title>mosaic iframe</title>
@@ -38,9 +38,9 @@
 <script language="javascript" type="text/javascript">
 /* Made with YACx-Mosaic 0.01 for use in studiodesign88.com */
 /*
-// Preload images: 
+// Preload images:
     images_mosaic = new Array();
-                   
+
     images_mosaic["0_0_plain"] = new  Image();
     images_mosaic["0_0_plain"].src = "images/m__0_0.png";
 

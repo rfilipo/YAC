@@ -30,8 +30,8 @@ var YAC = window.parent.YAC;
 <script type="text/javascript">
 /* FIXME to how work in ajax with rte?
  *
- * 
-*/  
+ *
+*/
 var wysywyg = $(".rte-zone").rte({
     content_css_url: "/css/default.css",
     media_url: "/images/tango/",
@@ -76,25 +76,25 @@ function saveStack(){
             titulo.addClass('hightlight');
             return false;
         } else titulo.removeClass('hightlight');
- 
+
         var data = 'url=' + url.val() + '&tipo=' + tipo.val() + '&titulo=' + titulo.val() + '&user_id=' + user_id.val() + '&stack_id=' + stack_id.val() + '&content='  + encodeURIComponent(content);
         //disabled all the text fields
         $('.text').attr('disabled','true');
-         
+
         //show the loading sign
         $('.loading').show();
 
         $.ajax({
-            url: "[% c.uri_for ('/edit','update') %]", 
+            url: "[% c.uri_for ('/edit','update') %]",
             type: "POST",
-            data: data,     
+            data: data,
             cache: false,
-            success: function (returned) {              
+            success: function (returned) {
                 if (returned) {
-                   closeEditor("[% stacks.0.id %]"); 
+                   closeEditor("[% stacks.0.id %]");
                    YAC.loadList("[% c.uri_for ('/admin','list_content') %]");
-                } else alert('Sorry, unexpected error. Please try again later.');               
-            }       
+                } else alert('Sorry, unexpected error. Please try again later.');
+            }
         });
 
 */

@@ -2,7 +2,7 @@
 
 /**
   * class Edit
-  * 
+  *
   */
 
 Edit = function ()

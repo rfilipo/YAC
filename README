@@ -8,8 +8,8 @@ It's for you!
    For Bloggers:
         See the chapter "Blog Roadmap" in documents.         #TODO
         Just install and edit.
-        Use the design you want. 
-        The YAC come with some pre-designed templates. 
+        Use the design you want.
+        The YAC come with some pre-designed templates.
     For Corporates:
         See the  chapter "Website Roadmap" in documents.     #TODO
         Just do the website's design!
@@ -21,22 +21,22 @@ It's for you!
         See the  chapter "YACx Roadmap" in documents.        #TODO
         Perl mongers can proud the YAC just hacking new modules.
         See the YAC's blog!
- 
+
     YAC is a basic CMS Design Pattern with a simple user interface. No
     need to learn perl to play the YAC but a monk can play so well.
 
     A CMS needs features to create, edit, organize and publish content,
     ways to link and exchange the content in the web environment.
-   
+
     As simple as an CMS can be, YAC implements a simple user interface
     around Catalyst. This open  design encourage YAC's contributions grow.
 
-    The most important pattern is the open user interface paradigma. The 
+    The most important pattern is the open user interface paradigma. The
     idea about web interfaces can't neglect Ajax and the HTML 5 protocol.
 
    Features (Core extensions)
 
-    * Dialogs and jqueryUI things                              *functional 
+    * Dialogs and jqueryUI things                              *functional
     * Access Control List Auth                                 *functional
     * HTML WYSIWYG content editor                              *functional
     * Media Player                                             *not implemented
@@ -45,7 +45,7 @@ It's for you!
     * Virtual file manager at WYSIWYG content editor level     *not implemented
     * Extension System, Catalyst compatible, easy instalable   *functional, need howtos
     * Acces to Catalyst at WYSIWYG content editor level        *not implemented
-    * Web hooks to some Catalyst helpers: 
+    * Web hooks to some Catalyst helpers:
             create View,                                       *not implemented
             create Model,                                      *not implemented
             create Control                                     *not implemented
@@ -84,7 +84,7 @@ You can also look for information at:
 LICENSE AND COPYRIGHT
 
 Copyright (C) 2010 Monsenhor
-Ricardo Filipo 
+Ricardo Filipo
 <ricardo.filipo@mitologica.com.br>
 
 This program is free software; you can redistribute it and/or modify it

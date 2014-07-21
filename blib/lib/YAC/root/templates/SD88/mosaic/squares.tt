@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head profile='http://kobkob.org/xmdp/squares.html'>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="author" lang="en" content="monsenhor" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
 <title>mosaic iframe</title>
@@ -21,18 +21,18 @@
 <tr>
   [% WHILE cols < 8 %]
   [% filename = images.$rows.$cols.file %]
-<td><a href="/mosaic/show/[% serie %]/[% images.$rows.$cols.file %]"><img 
-        onclick="mosaicAction(this);" 
-        onmouseout="exchange(this, 'images_mosaic', 0);" 
-        onmouseover="exchange(this, 'images_mosaic', 1);" 
-        class='m_0' 
-        style='width:[% width %]; height:[% width %]; border-width:0px' 
-        alt="[% filename %]" 
-        src='/mosaic/show/[% serie %]/[% images.$rows.$cols.mos %]' 
-        name='[% rows %]_[% cols %]' 
+<td><a href="/mosaic/show/[% serie %]/[% images.$rows.$cols.file %]"><img
+        onclick="mosaicAction(this);"
+        onmouseout="exchange(this, 'images_mosaic', 0);"
+        onmouseover="exchange(this, 'images_mosaic', 1);"
+        class='m_0'
+        style='width:[% width %]; height:[% width %]; border-width:0px'
+        alt="[% filename %]"
+        src='/mosaic/show/[% serie %]/[% images.$rows.$cols.mos %]'
+        name='[% rows %]_[% cols %]'
         id='[% i %]' border='0' refx= '[% images.$rows.$cols.x %]' refy='[% images.$rows.$cols.y %]' /></a></td>
 <script language="javascript" type="text/javascript">
-    // Preload images: 
+    // Preload images:
     images_mosaic["[% rows %]_[% cols %]_plain"] = new  Image();
     images_mosaic["[% rows %]_[% cols %]_plain"].src = "/mosaic/show/[% serie %]/[% images.$rows.$cols.mos %]";
     images_mosaic["[% rows %]_[% cols %]_hover"] = new  Image();

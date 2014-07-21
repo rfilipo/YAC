@@ -39,7 +39,7 @@ CCCDLFLAGS = -fPIC
 CCDLFLAGS = -Wl,-E
 DLEXT = so
 DLSRC = dl_dlopen.xs
-EXE_EXT = 
+EXE_EXT =
 FULL_AR = /usr/bin/ar
 LD = cc
 LDDLFLAGS = -shared -O2 -g -L/usr/local/lib
@@ -80,7 +80,7 @@ MAN1EXT = 1p
 MAN3EXT = 3pm
 INSTALLDIRS = site
 INSTALL_BASE = /home/filipo/develop/perl5
-DESTDIR = 
+DESTDIR =
 PREFIX = $(INSTALL_BASE)
 INSTALLPRIVLIB = $(INSTALL_BASE)/lib/perl5
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
@@ -151,19 +151,19 @@ MM_REVISION = 65600
 MAKE = make
 FULLEXT = YAC
 BASEEXT = YAC
-PARENT_NAME = 
+PARENT_NAME =
 DLBASE = $(BASEEXT)
 VERSION_FROM = lib/YAC.pm
-OBJECT = 
+OBJECT =
 LDFROM = $(OBJECT)
 LINKTYPE = dynamic
-BOOTDEP = 
+BOOTDEP =
 
 # Handy lists of source code files:
-XS_FILES = 
-C_FILES  = 
-O_FILES  = 
-H_FILES  = 
+XS_FILES =
+C_FILES  =
+O_FILES  =
+H_FILES  =
 MAN1PODS = script/yac_cgi.pl \
 	script/yac_create.pl \
 	script/yac_fastcgi.pl \
@@ -204,14 +204,14 @@ INST_ARCHLIBDIR  = $(INST_ARCHLIB)
 INST_AUTODIR     = $(INST_LIB)/auto/$(FULLEXT)
 INST_ARCHAUTODIR = $(INST_ARCHLIB)/auto/$(FULLEXT)
 
-INST_STATIC      = 
-INST_DYNAMIC     = 
-INST_BOOT        = 
+INST_STATIC      =
+INST_DYNAMIC     =
+INST_BOOT        =
 
 # Extra linker info
-EXPORT_LIST        = 
-PERL_ARCHIVE       = 
-PERL_ARCHIVE_AFTER = 
+EXPORT_LIST        =
+PERL_ARCHIVE       =
+PERL_ARCHIVE_AFTER =
 
 
 TO_INST_PM = lib/YAC.pm \
@@ -340,8 +340,8 @@ MOD_INSTALL = $(ABSPERLRUN) -MExtUtils::Install -e 'install([ from_to => {@ARGV}
 DOC_INSTALL = $(ABSPERLRUN) -MExtUtils::Command::MM -e 'perllocal_install' --
 UNINSTALL = $(ABSPERLRUN) -MExtUtils::Command::MM -e 'uninstall' --
 WARN_IF_OLD_PACKLIST = $(ABSPERLRUN) -MExtUtils::Command::MM -e 'warn_if_old_packlist' --
-MACROSTART = 
-MACROEND = 
+MACROSTART =
+MACROEND =
 USEMAKEFILE = -f
 FIXIN = $(ABSPERLRUN) -MExtUtils::MY -e 'MY->fixin(shift)' --
 
@@ -555,7 +555,7 @@ manifypods : pure_all  \
 	  script/yac_create.pl $(INST_MAN1DIR)/yac_create.pl.$(MAN1EXT) \
 	  script/yac_cgi.pl $(INST_MAN1DIR)/yac_cgi.pl.$(MAN1EXT) \
 	  script/yac_fastcgi.pl $(INST_MAN1DIR)/yac_fastcgi.pl.$(MAN1EXT) \
-	  script/yac_test.pl $(INST_MAN1DIR)/yac_test.pl.$(MAN1EXT) 
+	  script/yac_test.pl $(INST_MAN1DIR)/yac_test.pl.$(MAN1EXT)
 	$(NOECHO) $(POD2MAN) --section=3 --perm_rw=$(PERM_RW) \
 	  lib/YAC/Controller/Mosaic.pm $(INST_MAN3DIR)/YAC::Controller::Mosaic.$(MAN3EXT) \
 	  lib/YAC/Controller/Logout.pm $(INST_MAN3DIR)/YAC::Controller::Logout.$(MAN3EXT) \
@@ -580,7 +580,7 @@ manifypods : pure_all  \
 	  lib/YAC/Schema/Result/UserRole.pm $(INST_MAN3DIR)/YAC::Schema::Result::UserRole.$(MAN3EXT) \
 	  lib/YAC/Schema/bk/User.pm $(INST_MAN3DIR)/YAC::Schema::bk::User.$(MAN3EXT) \
 	  lib/YACCMS.pm $(INST_MAN3DIR)/YACCMS.$(MAN3EXT) \
-	  lib/YAC/Stack.pm $(INST_MAN3DIR)/YAC::Stack.$(MAN3EXT) 
+	  lib/YAC/Stack.pm $(INST_MAN3DIR)/YAC::Stack.$(MAN3EXT)
 
 
 
@@ -599,7 +599,7 @@ realclean ::
 	$(RM_F) \
 	  $(INST_SCRIPT)/yac_server.pl $(INST_SCRIPT)/yac_create.pl \
 	  $(INST_SCRIPT)/yac_cgi.pl $(INST_SCRIPT)/yac_fastcgi.pl \
-	  $(INST_SCRIPT)/yac_test.pl $(INST_SCRIPT)/check_posh.pl 
+	  $(INST_SCRIPT)/yac_test.pl $(INST_SCRIPT)/check_posh.pl
 
 $(INST_SCRIPT)/yac_server.pl : script/yac_server.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
 	$(NOECHO) $(RM_F) $(INST_SCRIPT)/yac_server.pl
@@ -669,9 +669,9 @@ clean :: clean_subdirs
 	  core.[0-9][0-9][0-9] mon.out \
 	  lib$(BASEEXT).def perlmain.c \
 	  perl.exe so_locations \
-	  $(BASEEXT).exp 
+	  $(BASEEXT).exp
 	- $(RM_RF) \
-	  blib 
+	  blib
 	- $(MV) $(FIRST_MAKEFILE) $(MAKEFILE_OLD) $(DEV_NULL)
 
 
@@ -684,9 +684,9 @@ realclean_subdirs :
 # Delete temporary files (via clean) and also delete dist files
 realclean purge ::  clean realclean_subdirs
 	- $(RM_F) \
-	  $(MAKEFILE_OLD) $(FIRST_MAKEFILE) 
+	  $(MAKEFILE_OLD) $(FIRST_MAKEFILE)
 	- $(RM_RF) \
-	  MYMETA.yml $(DISTVNAME) 
+	  MYMETA.yml $(DISTVNAME)
 
 
 # --- MakeMaker metafile section:
@@ -713,7 +713,7 @@ manifest :
 	$(PERLRUN) "-MExtUtils::Manifest=mkmanifest" -e mkmanifest
 
 veryclean : realclean
-	$(RM_F) *~ */*~ *.orig */*.orig *.bak */*.bak *.old */*.old 
+	$(RM_F) *~ */*~ *.orig */*.orig *.bak */*.bak *.old */*.old
 
 
 
@@ -759,14 +759,14 @@ create_distdir :
 	$(PERLRUN) "-MExtUtils::Manifest=manicopy,maniread" \
 		-e "manicopy(maniread(),'$(DISTVNAME)', '$(DIST_CP)');"
 
-distdir : create_distdir  
+distdir : create_distdir
 	$(NOECHO) $(NOOP)
 
 
 
 # --- MakeMaker dist_test section:
 disttest : distdir
-	cd $(DISTVNAME) && $(ABSPERLRUN) Makefile.PL 
+	cd $(DISTVNAME) && $(ABSPERLRUN) Makefile.PL
 	cd $(DISTVNAME) && $(MAKE) $(PASTHRU)
 	cd $(DISTVNAME) && $(MAKE) test $(PASTHRU)
 
@@ -926,7 +926,7 @@ $(FIRST_MAKEFILE) : Makefile.PL $(CONFIGDEP)
 	-$(NOECHO) $(RM_F) $(MAKEFILE_OLD)
 	-$(NOECHO) $(MV)   $(FIRST_MAKEFILE) $(MAKEFILE_OLD)
 	- $(MAKE) $(USEMAKEFILE) $(MAKEFILE_OLD) clean $(DEV_NULL)
-	$(PERLRUN) Makefile.PL 
+	$(PERLRUN) Makefile.PL
 	$(NOECHO) $(ECHO) "==> Your Makefile has been rebuilt. <=="
 	$(NOECHO) $(ECHO) "==> Please rerun the $(MAKE) command.  <=="
 	$(FALSE)
@@ -1040,7 +1040,7 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  lib/YACCMS.pm blib/lib/YACCMS.pm \
 	  lib/YAC/Schema.bk.pm blib/lib/YAC/Schema.bk.pm \
 	  lib/YAC/Controller/Edit.pm.tdy blib/lib/YAC/Controller/Edit.pm.tdy \
-	  lib/YAC/Stack.pm blib/lib/YAC/Stack.pm 
+	  lib/YAC/Stack.pm blib/lib/YAC/Stack.pm
 	$(NOECHO) $(TOUCH) pm_to_blib
 
 

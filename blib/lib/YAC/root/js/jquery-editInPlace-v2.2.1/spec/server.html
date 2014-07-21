@@ -19,7 +19,7 @@
 					.exec('unit/browser_bugs.js')
 					.exec('unit/callbacks.js')
 					.exec('unit/custom_settings.js')
-					
+
 					.run({ reporter: JSpec.reporters.Server, verbose: true, failuresOnly: true, fixturePath: '/spec/fixtures' })
 					.report()
 			}

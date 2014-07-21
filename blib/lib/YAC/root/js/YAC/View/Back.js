@@ -2,7 +2,7 @@
 
 /**
   * class Back
-  * 
+  *
   */
 
 Back = function ()

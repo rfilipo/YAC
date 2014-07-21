@@ -1,4 +1,4 @@
-// YAC Admin 0.2 © 2011 Ricardo Filipo 
+// YAC Admin 0.2 © 2011 Ricardo Filipo
 // Artistic license
 // required libs:
 // * jquery 1.4.4
@@ -11,7 +11,7 @@ TODO:
  - use YAC js structure
  - YAC deal with login redirects (works only in function deletar)
 
-This script loads the YAC javascript structure and the YAC Admin View. 
+This script loads the YAC javascript structure and the YAC Admin View.
 When the template is totaly loaded from Internet, the user interface
 is performed.
 
@@ -214,7 +214,7 @@ $.getScript('js/YAC/yac_loader.js', function()
     YAC.Controller.Admin = new Admin();
     //console.log(yac_state+'- Loaded YAC hack controller. ' + YAC.Controller.Hack);
   });
- 
+
   $.getScript('js/YAC/Stack.js', function()
   {
     YAC.Model.Stack = new Stack();

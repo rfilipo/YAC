@@ -1,4 +1,4 @@
-select 
+select
 {
         opacity: 0; filter:alpha(opacity=0);
        font-size:8px;
@@ -9,7 +9,7 @@ option
        font-family:sans-serif;
        font-size:10px;
        background: url(/images/tango/go.png) no-repeat;
-       padding: 0 0 0 20px; 
+       padding: 0 0 0 20px;
 }
 
 .frameBody
@@ -38,8 +38,8 @@ option
     display:block;
 }
 
-.rte-toolbar{ 
-overflow:hidden; 
+.rte-toolbar{
+overflow:hidden;
 background: url(/images/tango/style.png) no-repeat;
 }
 

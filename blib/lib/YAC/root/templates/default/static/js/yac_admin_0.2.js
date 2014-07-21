@@ -1,4 +1,4 @@
-// YAC 0.2  license Affero GPL 
+// YAC 0.2  license Affero GPL
 var yac_version = '0.2.1';
 console.log('Iniciando YAC Admin');
 
@@ -16,7 +16,7 @@ function load ( html ) {
 }
 
 function list(module){
-        $('#panel').load('/admin/list_'+module);  
+        $('#panel').load('/admin/list_'+module);
 }
 
 function deletar(module, id){
@@ -77,7 +77,7 @@ if (!console){alert('Por favor, ligue o firebug!!!!');}
 console.log('YAC - jquery implementation ' + yac_version);
 /**
   * namespace YAC
-  * 
+  *
   */
 var YAC        = {};
 YAC.Controller = {};
@@ -107,7 +107,7 @@ Y.load = YAC.View.Root.load;
 ///////////////////////////////////////////////////
 /**
   * class MyWidget
-  * 
+  *
   */
 
 MyWidget = function ()
@@ -128,19 +128,19 @@ MyWidget.prototype._init = function ()
      */
     this.m_id = "_";
     /**
-     * 
+     *
      */
     this.m_width = 0;
     /**
-     * 
+     *
      */
     this.m_height = 0;
     /**
-     * 
+     *
      */
     this.m_top = 0;
     /**
-     * 
+     *
      */
     this.m_left = 0;
     /**
@@ -155,9 +155,9 @@ MyWidget.prototype._init = function ()
 }
 
 /**
- * 
+ *
  * @param id
-    *      
+    *
  */
 MyWidget.prototype.setId = function (id)
 {
@@ -166,7 +166,7 @@ MyWidget.prototype.setId = function (id)
 
 
 /**
- * 
+ *
  */
 MyWidget.prototype.getId = function ()
 {
@@ -174,7 +174,7 @@ MyWidget.prototype.getId = function ()
 }
 
 /**
- * 
+ *
  */
 MyWidget.prototype.scale = function (k)
 {
@@ -198,7 +198,7 @@ MyWidget.prototype.scale = function (k)
 
 /**
   * class MyBody
-  * 
+  *
   */
 
 MyBody = function ()
@@ -222,8 +222,8 @@ MyBody.prototype._init = function ()
 }
 
 /**
- * 
- * 
+ *
+ *
  */
 MyBody.prototype.setContent = function (url)
 {
@@ -237,7 +237,7 @@ MyBody.prototype.setContent = function (url)
 
 /**
   * class MyFooter
-  * 
+  *
   */
 
 MyFooter = function ()
@@ -262,7 +262,7 @@ MyFooter.prototype._init = function ()
 
 /**
   * class MyHead
-  * 
+  *
   */
 
 MyHead = function ()
@@ -292,7 +292,7 @@ MyHead.prototype._init = function ()
 }
 
 /**
- * 
+ *
  */
 MyHead.prototype.scale = function (k)
 {
@@ -315,7 +315,7 @@ MyHead.prototype.scale = function (k)
 
 /**
   * class MyLeftPane
-  * 
+  *
   */
 
 MyLeftPane = function ()
@@ -331,7 +331,7 @@ MyLeftPane.prototype = new MyWidget ();
  */
 MyLeftPane.prototype._init = function ()
 {
- 
+
     /**Aggregations: */
 
     /**Compositions: */
@@ -339,7 +339,7 @@ MyLeftPane.prototype._init = function ()
 }
 
 /**
- * 
+ *
  */
 MyLeftPane.prototype.scale = function (k)
 {
@@ -355,10 +355,10 @@ MyLeftPane.prototype.scale = function (k)
   this.m_top = ofbb.top * k;
   $('#'+this.m_id).offset({top: this.m_top , left: this.m_left});
 }
- 
+
 /**
   * class MyRightPane
-  * 
+  *
   */
 
 MyRightPane = function ()
@@ -383,7 +383,7 @@ MyRightPane.prototype._init = function ()
 
 /**
   * class MyMenu
-  * 
+  *
   */
 
 MyMenu = function ()
@@ -409,7 +409,7 @@ MyMenu.prototype._init = function ()
 }
 
 /**
- * 
+ *
  */
 MyMenu.prototype.scale = function (k)
 {
@@ -418,7 +418,7 @@ MyMenu.prototype.scale = function (k)
   var fs = str.replace(/px/gi,'');
   fs *= k;
   $('.menu').css('font-size', fs + "px");
-  
+
   // div sizes
   $('.menu').width(     $('.menu').width() * k);
   $('.menu').height(    $('.menu').height() * k);

@@ -32,9 +32,9 @@ The root page (/)
 
 Show a stack defined by this url as argument
 
-sub begin : Private { 
+sub begin : Private {
     my ( $self, $c ) = @_;
-    if ( !$c->request->arguments->[0] ) { 
+    if ( !$c->request->arguments->[0] ) {
         $c->forward('search',['index']);
         #exit();
     }
@@ -44,7 +44,7 @@ sub begin : Private {
 
 sub index :Path :Args(1) {
     my ( $self, $c, $url ) = @_;
-    
+
     if ($c->config->{'template_path'}) {
         $c->stash->{additional_template_paths} =
             [$c->config->{'template_path'}];
@@ -56,13 +56,13 @@ sub index :Path :Args(1) {
 
 =head2 template_path
 
-Change the template_path configuration. 
+Change the template_path configuration.
 
 After this command is done all pages served will use the new template until it changes again. It can be a must in ajax aplications.
 
 The site can use template_path configuration from web requests or from file yac.conf.
 
-If you want to use configuration from web request coment the configuration diretive template_path in yac.conf. The web command only works if the template_path diretive isn't in the yac.conf. 
+If you want to use configuration from web request coment the configuration diretive template_path in yac.conf. The web command only works if the template_path diretive isn't in the yac.conf.
 
 Enjoy!
 
@@ -99,10 +99,10 @@ sub search: Private {
 
     $c->stash( stacks => \@rs );
 
-   
+
     if ($result->next){
         my $template_path = 'root/templates/default';
-        $template_path=$c->session->{template} unless ! $c->session->{template}; 
+        $template_path=$c->session->{template} unless ! $c->session->{template};
         @{ $c->view('Stack')->include_path } = $template_path;
         $c->stash( template => 'index.tt' );
         $c->forward( $c->view('Stack') );
@@ -145,9 +145,9 @@ sub default :Path {
 
         $c->session->{template} = $c->config->{'template_path'};
     }
- 
 
-    if ( !$c->request->arguments->[0] ) { 
+
+    if ( !$c->request->arguments->[0] ) {
         $c->forward('search',[$c->config->{'homepage'}]);
     } else {
        $c->response->body( '<h1>What? :P  ...</h1><br><a href="/">&lt;-- </a>' );

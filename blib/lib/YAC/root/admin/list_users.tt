@@ -5,7 +5,7 @@
 [% # Display each user in list row %]
   <div class='iconlist code'>
 [% FOREACH user IN users -%]
-    <li class='user'>[% user.last_name %], [% user.first_name %] <a href='mailto:[% user.email_address %]'>[% user.email_address %]</a> 
+    <li class='user'>[% user.last_name %], [% user.first_name %] <a href='mailto:[% user.email_address %]'>[% user.email_address %]</a>
 <span class='btEdit' style="float:right; cursor: pointer;" onclick="edit('user', [% user.id %])">Edit</span></li>
 [% END -%]
   </div>

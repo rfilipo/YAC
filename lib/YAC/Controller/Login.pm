@@ -35,9 +35,9 @@ sub index :Path :Args(0) {
                                    password => $password  } )) {
                 # If successful, then let them use the application
                 $c->response->redirect($c->uri_for(
-                        
+
                     # well, we need a police for users/roles
-                    # maybe anybody loged in wants to edit: 
+                    # maybe anybody loged in wants to edit:
                     $c->controller('Admin')->action_for('index')));
 
                 return;

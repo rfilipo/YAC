@@ -84,7 +84,7 @@
 
 2010-05-30  Martin Haecker  <spamfaenger@gmx.de>
 
-	fixes #59, I was accidentally using a Spidermonkey extension to splice (which made it behave like slice) - which of course tripped up ie. Ah well. Thanks to inssomnia for noticing! 
+	fixes #59, I was accidentally using a Spidermonkey extension to splice (which made it behave like slice) - which of course tripped up ie. Ah well. Thanks to inssomnia for noticing!
 
 2010-05-30  Martin Haecker  <spamfaenger@gmx.de>
 
@@ -108,7 +108,7 @@
 
 2010-05-22  Martin Haecker  <spamfaenger@gmx.de>
 
-	starte splitting test suite into multiple files for more clarity. First stage involves pushing out setup into 'shared setup' and referencing that with should_behave_like in each testsuite. Works fine so far. :) 
+	starte splitting test suite into multiple files for more clarity. First stage involves pushing out setup into 'shared setup' and referencing that with should_behave_like in each testsuite. Works fine so far. :)
 
 2010-05-22  Martin Haecker  <spamfaenger@gmx.de>
 
@@ -120,7 +120,7 @@
 
 2010-05-22  Martin Haecker  <spamfaenger@gmx.de>
 
-	applied patch from superami to allow the callback to handle the dom reset itself. Thanks again! 
+	applied patch from superami to allow the callback to handle the dom reset itself. Thanks again!
 
 2010-05-22  Martin Haecker  <spamfaenger@gmx.de>
 
@@ -569,7 +569,7 @@
 
 	initial import
 
-2009-04-06  
+2009-04-06
 
 	Initial directory structure.
 

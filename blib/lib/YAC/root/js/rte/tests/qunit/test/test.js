@@ -46,7 +46,7 @@ module("teardown and stop", {
 });
 
 test("teardown must be called after test ended", function() {
-	
+
 	expect(1);
 	stop();
 	setTimeout(function() {

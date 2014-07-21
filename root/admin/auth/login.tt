@@ -13,8 +13,8 @@ html, body {
 #loginFrame{
         width: 800px;
         height: 560px;
-        margin-left: -400px; 
-        margin-top: -280px; 
+        margin-left: -400px;
+        margin-top: -280px;
         text-align: center;
         border: 0px solid #000;
         background-color: white;
@@ -73,7 +73,7 @@ div#clock{
  height: 80px;
  margin: 0 auto;
  position: relative;
- float: right; 
+ float: right;
  background-image: url(images/bgclock.png);
 
 }
@@ -84,7 +84,7 @@ div#clock div.hour-handle, div#clock div.minute-handle, div#clock div.seconds-ha
  top: 45px;
  left: 85px;
  overflow: hidden;
- 
+
  -moz-transform-origin: 50% 100%;
  -webkit-transform-origin: 50% 100%;
  -o-transform-origin: 50% 100%;

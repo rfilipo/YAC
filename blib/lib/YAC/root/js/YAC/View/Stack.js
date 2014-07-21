@@ -2,7 +2,7 @@
 
 /**
   * class Stack
-  * 
+  *
   */
 
 Stack = function ()

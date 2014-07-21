@@ -69,7 +69,7 @@ test("Primitive types and constants", function () {
     equals(QUnit.equiv('', false), false, "string");
     equals(QUnit.equiv('', null), false, "string");
     equals(QUnit.equiv('', undefined), false, "string");
-    
+
     // Short annotation VS new annotation
     equals(QUnit.equiv(0, new Number()), true, "short annotation VS new annotation");
     equals(QUnit.equiv(new Number(), 0), true, "short annotation VS new annotation");
@@ -344,7 +344,7 @@ test("Date instances.", function() {
     // Date, we don't need to test Date.parse() because it returns a number.
     // Only test the Date instances by setting them a fix date.
     // The date use is midnight January 1, 1970
-    
+
     var d1 = new Date();
     d1.setTime(0); // fix the date
 
@@ -451,7 +451,7 @@ test("Complex Objects.", function() {
     function fn2() {
         return "fn2";
     }
-    
+
     // Try to invert the order of some properties to make sure it is covered.
     // It can failed when properties are compared between unsorted arrays.
     equals(QUnit.equiv(
@@ -1177,15 +1177,15 @@ test("Prototypal inheritance", function() {
 
 
 test("Instances", function() {
-    function A() {} 
-    var a1 = new A(); 
-    var a2 = new A(); 
+    function A() {}
+    var a1 = new A();
+    var a2 = new A();
 
     function B() {
         this.fn = function () {};
-    } 
-    var b1 = new B(); 
-    var b2 = new B(); 
+    }
+    var b1 = new B();
+    var b2 = new B();
 
     equals(QUnit.equiv(a1, a2), true, "Same property, same constructor");
 

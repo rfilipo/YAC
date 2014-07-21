@@ -1,9 +1,9 @@
-#!/usr/bin/perl 
+#!/usr/bin/perl
 #===============================================================================
 #
 #         FILE:  check_posh.pl
 #
-#        USAGE:  ./check_posh.pl  
+#        USAGE:  ./check_posh.pl
 #
 #  DESCRIPTION:  Check the HTML codes against w3c validator
 #

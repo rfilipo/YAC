@@ -11,7 +11,7 @@ div#qunit-testrunner-toolbar { background: #eee; border-top: 1px solid black; pa
 
 ol#qunit-tests { font-family: 'trebuchet ms', verdana, arial; font-size: 10pt; }
 ol#qunit-tests li strong { cursor:pointer; }
-ol#qunit-tests .pass { color: green; } 
-ol#qunit-tests .fail { color: red; } 
+ol#qunit-tests .pass { color: green; }
+ol#qunit-tests .fail { color: red; }
 
 p#qunit-testresult { margin-left: 1em; font-size: 10pt; font-family: 'trebuchet ms', verdana, arial; }

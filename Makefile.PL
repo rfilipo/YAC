@@ -1,5 +1,5 @@
 use inc::Module::Install;
-use Module::Install::Catalyst; 
+use Module::Install::Catalyst;
 
 requires 'Catalyst::Runtime' => '5.80025';
 requires 'Catalyst::Plugin::ConfigLoader';
@@ -13,8 +13,8 @@ requires 'Catalyst::Plugin::Session';
 requires 'Catalyst::Plugin::Session::Store::FastMmap';
 requires 'Catalyst::Plugin::Session::State::Cookie';
 requires 'Catalyst::Plugin::StackTrace';
-requires 'Catalyst::Authentication::Realm::SimpleDB'; 
-requires 'JSON'; 
+requires 'Catalyst::Authentication::Realm::SimpleDB';
+requires 'JSON';
 requires 'Path::Class';
 requires 'Image::Size';
 requires 'Image::Magick';

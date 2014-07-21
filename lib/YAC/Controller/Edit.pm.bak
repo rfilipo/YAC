@@ -17,7 +17,7 @@ Implements the edit system for YAC. CUD as is.
 At TT YAC implements the AJAX interface around jquery facilities.
 
 =head1 SYNOPSIS
-   
+
 One can use the YAC edit interface in AJAX:
 
    <script>
@@ -65,7 +65,7 @@ sub auto : Private {
     return 1;
 }
 
-=head2 index 
+=head2 index
 
 If the user is loged in procced with editing interface for root url.
 
@@ -97,7 +97,7 @@ sub search : Private {
         $c->stash( template => 'html/index_edit.tt' );
     }
     else {
-        $c->response->body( '<h1>What? :P  ...' 
+        $c->response->body( '<h1>What? :P  ...'
               . $url
               . ' IDK what\'s it, sorry.</h1><br><a href="/">&lt;-- </a>' );
     }
@@ -112,9 +112,9 @@ sub editor : Local {
 }
 
 =head2 url_create
-    
+
     Create a stack with the supplied tipo, titulo, conteudo, and user
-    
+
 =cut
 
 sub url_create : Local {
@@ -154,7 +154,7 @@ sub url_update : Local {
         }
     );
     $stack->add_to_stack_users( { user_id => $user_id } );
- 
+
       # return view to client
       $c->stash(
         stack    => $content,

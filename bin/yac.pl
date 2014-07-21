@@ -1,9 +1,9 @@
-#!/usr/bin/perl 
+#!/usr/bin/perl
 #===============================================================================
 #
 #         FILE:  yac.pl
 #
-#        USAGE:  ./yac.pl  
+#        USAGE:  ./yac.pl
 #
 #  DESCRIPTION:  /usr/bin/perl yac.pl
 #
@@ -15,7 +15,7 @@
 #      COMPANY:  Mito-Lógica design e soluções de comunicação ltda
 #      VERSION:  1.0
 #      CREATED:  30-07-2010 23:48:21
-#     REVISION:  
+#     REVISION:
 #===============================================================================
 
 use strict;

@@ -2,7 +2,7 @@
 
 /**
   * class Hack
-  * 
+  *
   */
 
 Hack = function ()

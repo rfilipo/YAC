@@ -17,7 +17,7 @@ Implements the edit system for YAC. CUD as is.
 At TT YAC implements the AJAX interface around jquery facilities.
 
 =head1 SYNOPSIS
-   
+
 One can use the YAC edit interface in AJAX:
 
    <script>
@@ -65,9 +65,9 @@ sub auto : Private {
     return 1;
 }
 
-=head2 index 
+=head2 index
 
-If the user is loged in procced with editing interface for url, 
+If the user is loged in procced with editing interface for url,
 defaults for root.
 
 Else presents the login page.
@@ -80,7 +80,7 @@ sub index : Path : Args(1) {
     else                        { $c->forward( 'search', 'index' ) }
 }
 
-=head2 search 
+=head2 search
 
 Private method. Works for this implementation.
 
@@ -102,7 +102,7 @@ sub search : Private {
         $c->stash( template => 'admin/edit/index_edit.tt' );
         $c->forward( $c->view('Back') );
     }
-    elsif ($url == 0) { 
+    elsif ($url == 0) {
         # edit a new stack
         my $stack = &default_stack;
         $c->stash( stacks => [$stack] );
@@ -110,7 +110,7 @@ sub search : Private {
         $c->forward( $c->view('Back') );
     }
     else {
-        $c->response->body( '<h1>What? :P  ...' 
+        $c->response->body( '<h1>What? :P  ...'
               . $url
               . ' IDK what\'s it, sorry.</h1><br><a href="/">&lt;-- </a>' );
     }
@@ -122,7 +122,7 @@ sub editor : Local {
     my @rs = [];
     my $stack = {};
     if ($url == 0) {  # edit a new stack
-        $stack = &default_stack; 
+        $stack = &default_stack;
     } else {
         @rs = $c->model('YAC::Stack')->search({ id => { 'like' => $url }});
         $stack = $rs[0];
@@ -133,9 +133,9 @@ sub editor : Local {
 }
 
 =head2 create
-    
+
     Create a stack with the supplied tipo, titulo, conteudo, and user
-    
+
 =cut
 
 sub create : Local {
@@ -157,9 +157,9 @@ sub create : Local {
 
 
 =head2 delete
-    
+
     Deletes a stack with the supplied id
-    
+
 =cut
 
 sub delete : Local {
@@ -182,12 +182,12 @@ sub update : Local {
          content =>  $c->request->params->{content} ,
          titulo  =>  $c->request->params->{titulo}  ,
          tipo    =>  $c->request->params->{tipo}    ,
-         url     =>  $c->request->params->{url}      
+         url     =>  $c->request->params->{url}
     };
 
     # do some dbic update
     my $id  =  $c->request->params->{stack_id};
-    if ($id == 0){ 
+    if ($id == 0){
        # default stack ... create one new on db!!!!
        my $m_stack = $c->model('YAC::Stack')->create($stack);
        $m_stack->add_to_stack_users( { user_id => $userId } );
@@ -197,7 +197,7 @@ sub update : Local {
        $m_stack->update( $stack);
     }
     # return view to client
-    
+
     $stack->{id} = $id;
     if ($action eq "Cancel"){
        print "Editor Cancelado!!!\n";
